@@ -63,16 +63,16 @@ nav a {
     }
 }
 
-/* Estilos para el menú de navegación desplegable */
-.menu-icon {
-    font-size: 30px;
-    cursor: pointer;
-    display: none;
-}
+    /* Estilos para el menú de navegación desplegable */
+    .menu-icon {
+        font-size: 30px;
+        cursor: pointer;
+        display: none;
+    }
 
-nav input[type="checkbox"] {
-    display: none;
-}
+    nav input[type="checkbox"] {
+        display: none;
+    }
 
 @media (max-width: 768px) {
     .menu-icon {
@@ -83,7 +83,11 @@ nav input[type="checkbox"] {
     }
 
     nav .img_logo {
-        display: none;
+        width: 120px;
+        position: absolute;
+        top: 0;
+        left: 50px;
+
     }
     nav {
         width: 100%;
