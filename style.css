@@ -104,6 +104,7 @@ nav a:hover {
 
 .descripcion p{
     font-size: 14px;
+    padding-left: 20px;
 }
 .panel {
     display: none;
