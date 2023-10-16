@@ -48,7 +48,58 @@ nav a:hover {
     background-color: #555; /* Cambia el color de fondo al pasar el cursor */
 }
 
+.slider {
+    width: 100%;
+    max-width: 800px;
+    /* Ajusta el ancho del slider según tus preferencias */
+    margin: 0 auto;
+    overflow: hidden;
+}
 
+.slider img {
+    width: 70%;
+    height: auto;
+    display: none;
+    margin: 0 auto;
+    border-radius: 30px;
+    border: 3px solid black;
+}
+
+.slider img:first-child {
+    display: block;
+}
+
+.tituloprincipal {
+    text-align: center;
+    color: darkblue;
+
+}
+
+.accordion {
+    cursor: pointer;
+    padding: 10px;
+    background-color: #f2f2f2;
+    border: none;
+    text-align: left;
+    width: 100%;
+    border-top: 2px solid #ddd;
+}
+
+.panel {
+    display: none;
+    padding: 10px;
+    border-top: 2px solid #ddd;
+}
+
+.active,
+.accordion:hover {
+    background-color: #ddd;
+}
+
+.titulosecundario {
+    text-align: center;
+    font-size: 20px;
+}
 
 
 
@@ -112,6 +163,10 @@ nav a:hover {
         position: absolute;
         top: 20px;
         right: 20px;
+    }
+
+    .slider img{
+        width: 85%;
     }
 
     nav .img_logo {
