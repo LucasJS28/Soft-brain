@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesion</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="estilos.css">
 </head>
+
 <body>
     <nav>
         <input type="checkbox" id="menu-toggle">
@@ -15,15 +18,115 @@
         <a href="sobreNosotros.html">Sobre Nosotros</a>
         <a href="clientes.html">Nuestros Clientes</a>
         <a href="login.html">Iniciar Sesion</a>
-        <a href="registro.html">Registrar</a>
         <a href="cotizar.html">Cotizacion</a>
         <a class="img_logo" href="index.html"><img class="img_logo" src="imagenes/logo.png" alt="Logo Empresarial"></a>
     </nav>
-    
+
     <div class="container">
-        <div class="titulo"><h1>Iniciar Sesion</h1></div>
+        <div class="wrapper">
+            <div class="title-text">
+                <div class="title login">Iniciar Sesion</div>
+                <div class="title signup">Registro</div>
+            </div>
+            <div class="form-container">
+                <div class="slide-controls">
+                    <input type="radio" name="slide" id="login" checked>
+                    <input type="radio" name="slide" id="signup">
+                    <label for="login" class="slide login">Inicio</label>
+                    <label for="signup" class="slide signup">Registro</label>
+                    <div class="slider-tab"></div>
+                </div>
+                <div class="form-inner">
+                    <form action="#" class="login">
+                        <div class="field">
+                            <input type="text" placeholder="Correo Electronico" required>
+                        </div>
+                        <div class="field">
+                            <input type="password" placeholder="Contraseña" required>
+                        </div>
+                        <div class="pass-link"><a href="#">Olvidaste tu Contraseña?</a></div>
+                        <div class="field btn">
+                            <div class="btn-layer"></div>
+                            <input type="submit" value="Login">
+                        </div>
+                        <div class="signup-link">No estas Registrado? <a href="#">Registrate Ahora</a></div>
+                    </form>
+                    <form action="#" class="signup">
+                        <div class="field">
+                            <input type="text" placeholder="Correo Electronico" required>
+                        </div>
+                        <div class="field">
+                            <input type="password" placeholder="Contraseña" required id="password">
+                        </div>
+                        <div class="field">
+                            <input type="password" placeholder="Repetir Contraseña" required id="confirmPassword">
+                        </div>
+                        <div class="field btn">
+                            <div class="btn-layer"></div>
+                            <input type="submit" value="Registrar">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script>
+        const loginText = document.querySelector(".title-text .login");
+        const loginForm = document.querySelector("form.login");
+        const signupForm = document.querySelector("form.signup");
+        const loginBtn = document.querySelector("label.login");
+        const signupBtn = document.querySelector("label.signup");
+        const signupLink = document.querySelector("form .signup-link a");
+
+        // Variables para almacenar credenciales (esto no es seguro en producción)
+        let users = [];
+
+        signupBtn.onclick = () => {
+            loginForm.style.marginLeft = "-50%";
+            loginText.style.marginLeft = "-50%";
+        };
+
+        loginBtn.onclick = () => {
+            loginForm.style.marginLeft = "0%";
+            loginText.style.marginLeft = "0%";
+        };
+
+        signupLink.onclick = () => {
+            signupBtn.click();
+            return false;
+        };
+
+        loginForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const email = loginForm.querySelector('input[type="text"]').value;
+            const password = loginForm.querySelector('input[type="password"]').value;
+
+            // Verificar si las credenciales coinciden con las almacenadas en la variable
+            const user = users.find((user) => user.email === email && user.password === password);
+
+            if (user) {
+                alert("Inicio de sesión exitoso");
+            } else {
+                alert("Credenciales incorrectas");
+            }
+        });
+
+        signupForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const email = signupForm.querySelector('input[type="text"]').value;
+            const password = signupForm.querySelector('#password').value;
+            const confirmPassword = signupForm.querySelector('#confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                alert("Las contraseñas no coinciden");
+                return;
+            }
+
+            // Agregar el nuevo usuario a la lista de usuarios (esto no es seguro en producción)
+            users.push({ email, password });
+            alert("Registro exitoso");
+        });
+
+    </script>
 </body>
-
-
-</html>

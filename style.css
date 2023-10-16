@@ -5,6 +5,10 @@ body {
     padding: 0;
 }
 
+.wrapper {
+    margin: 0 auto;
+}
+
 .container {
     padding: 20px;
     max-width: 1000px;
@@ -86,7 +90,7 @@ nav input[type="checkbox"] {
         padding: 20px 0;
         text-align: center;
         height: auto;
-        min-height: 30px;
+        min-height: 70px;
     }
 
     nav a {
