@@ -63,47 +63,59 @@
     }
 
     input[type="radio"] {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #333;
-    border-radius: 50%;
-    margin-right: 5px;
-    position: relative;
-}
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        width: 20px;
+        height: 20px;
+        border: 2px solid #333;
+        border-radius: 50%;
+        margin-right: 5px;
+        position: relative;
+    }
 
-/* Estilos para los radio buttons seleccionados */
-input[type="radio"]:checked {
-    background-color: #333;
-    border: 2px solid #333;
-}
+    /* Estilos para los radio buttons seleccionados */
+    input[type="radio"]:checked {
+        background-color: #333;
+        border: 2px solid #333;
+    }
 
-/* Estilos para las etiquetas de los radio buttons */
-label input[type="radio"] {
-    display: inline-block;
-    vertical-align: middle;
-    position: relative;
-    top: 4px;
-}
+    /* Estilos para las etiquetas de los radio buttons */
+    label input[type="radio"] {
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
+        top: 4px;
+    }
 
-/* Estilos adicionales para las etiquetas de los radio buttons */
-label {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: 500;
-    font-size: 16px; /* Ajusta el tamaño de fuente según tus preferencias */
-}
+    /* Estilos adicionales para las etiquetas de los radio buttons */
+    label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: 500;
+        padding-top: 10px;
+        font-size: 16px;
+        /* Ajusta el tamaño de fuente según tus preferencias */
+    }
 
-/* Estilos para el contenedor de radio buttons */
-.radio-container {
-    margin-top: 10px;
-}
+    /* Estilos para el contenedor de radio buttons */
+    .radio-container {
+        margin-top: 10px;
+    }
 
+    .error-message {
+        color: red;
+        font-size: 13px;
+        margin-top: 5px;
+        padding-top: 2px;
+    }
+
+    .error-border {
+        border: 1px solid red;
+    }
 
     @media (max-width: 768px) {
-        .titulo{
+        .titulo {
             font-size: 14px;
         }
     }
@@ -127,10 +139,12 @@ label {
         </div>
         <form id="contact-form">
             <label for="nombre">Nombre de Contacto:</label>
-            <input type="text" id="nombre" name="nombre" required><br><br>
+            <input type="text" id="nombre" name="nombre" required><br>
+            <span class="error-message" id="nombre-error"></span>
 
             <label for="empresa">Empresa:</label>
-            <input type="text" id="empresa" name="empresa"><br><br>
+            <input type="text" id="empresa" name="empresa"><br>
+            <span class="error-message" id="empresa-error"></span>
 
             <label for="pais">País:</label>
             <select id="pais" name="pais">
@@ -142,38 +156,44 @@ label {
                 <option value="Perú">Perú</option>
                 <!-- Agrega más países aquí -->
             </select><br><br>
+            <span class="error-message" id="pais-error"></span>
 
             <label for="telefono">Teléfono:</label>
-            <input type="tel" id="telefono" name="telefono" maxlength="12" required oninput="this.value = this.value.replace(/[^0-9+\s]/g, '');"><br><br>
-
+            <input type="tel" id="telefono" name="telefono" maxlength="12" required
+                oninput="this.value = this.value.replace(/[^0-9+\s]/g, '');"><br>
+            <span class="error-message" id="telefono-error"></span>
 
             <label for="correo">Correo:</label>
-            <input type="email" id="correo" name="correo" required><br><br>
+            <input type="email" id="correo" name="correo" required><br>
+            <span class="error-message" id="correo-error"></span>
 
             <label>Descripción de Proyecto:</label><br>
-            <textarea id="descripcion" name="descripcion" rows="4" cols="50"></textarea><br><br>
+            <textarea id="descripcion" name="descripcion" rows="4" cols="50"></textarea><br>
+            <span class="error-message" id="descripcion-error"></span>
 
             <label>Tipo de Proyecto:</label><br>
             <label><input checked type="radio" name="tipo-proyecto" value="Pagina Web"> Página Web</label><br>
             <label><input type="radio" name="tipo-proyecto" value="Marketing"> Marketing</label><br>
             <label><input type="radio" name="tipo-proyecto" value="Servicio Tecnico"> Servicio Técnico</label><br><br>
+            <span class="error-message" id="tipo-proyecto-error"></span>
 
             <button type="button" id="enviar">Enviar</button>
         </form>
     </div>
 
+
     <script>
-    
+
         const codigosPaises = {
             "Argentina": "+54 ",
             "Brasil": "+55 ",
             "México": "+52 ",
             "Chile": "+56 ",
             "Perú": "+51 ",
-        
+
         };
 
-  
+
         const paisSelect = document.getElementById('pais');
         const telefonoInput = document.getElementById('telefono');
         const enviarButton = document.getElementById('enviar');
@@ -202,41 +222,98 @@ label {
             }
         });
 
-  
+
+        enviarButton.addEventListener('click', function () {
+            if (validarFormulario()) {
+                alert("Formulario Enviado, Pronto Recibirá su Respuesta");
+            }
+        });
+
         function validarFormulario() {
-            if (nombreInput.value.trim() === "") {
-                alert("El campo 'Nombre de Contacto' no puede estar vacío.");
-                return false;
+            // Reiniciar los estilos de los campos y los mensajes de error
+            reiniciarEstilos();
+
+            let formularioValido = true;
+
+            // Validación del campo "Nombre de Contacto"
+            const nombreInputValue = nombreInput.value.trim();
+            if (nombreInputValue === "") {
+                mostrarError(nombreInput, "El campo 'Nombre de Contacto' no puede estar vacío.");
+                formularioValido = false;
             }
 
-            if (empresaInput.value.trim() === "") {
-                alert("El campo 'Empresa' no puede estar vacío.");
-                return false;
+            // Validación del campo "Empresa"
+            const empresaInputValue = empresaInput.value.trim();
+            if (empresaInputValue === "") {
+                mostrarError(empresaInput, "El campo 'Empresa' no puede estar vacío.");
+                formularioValido = false;
             }
 
-            if (correoInput.value.trim() === "" || !validarCorreo(correoInput.value)) {
-                alert("Ingrese un correo válido en el formato correcto.");
-                return false;
+            // Validación del campo "Correo"
+            const correoInputValue = correoInput.value.trim();
+            if (correoInputValue === "" || !validarCorreo(correoInputValue)) {
+                mostrarError(correoInput, "Ingrese un correo válido en el formato correcto.");
+                formularioValido = false;
             }
 
-            if (descripcionInput.value.trim() === "" || descripcionInput.value.length < 20) {
-                alert("La descripción debe ser mas Larga.");
-                return false;
+            // Validación del campo "Descripción de Proyecto"
+            const descripcionInputValue = descripcionInput.value.trim();
+            if (descripcionInputValue === "" || descripcionInputValue.length < 20) {
+                mostrarError(descripcionInput, "La descripción debe ser más larga.");
+                formularioValido = false;
             }
 
-            if (telefonoInput.value.trim() === "" || telefonoInput.value.length < 10) {
-                alert("El Campo telefono no puede estar vacio.");
-                return false;
+            // Validación del campo "Teléfono"
+            const telefonoInputValue = telefonoInput.value.trim();
+            if (telefonoInputValue === "" || telefonoInputValue.length < 10) {
+                mostrarError(telefonoInput, "El Campo Teléfono no puede estar vacío y debe contener al menos 10 dígitos.");
+                formularioValido = false;
             }
 
+            // Validación del campo "País"
+            if (paisSelect.value === "Selecciona un país") {
+                mostrarError(paisSelect, "Por favor, selecciona un país.");
+                formularioValido = false;
+            }
 
-            alert("Formulario Enviado, Pronto Recibira su Respuesta");
-            return true;
+            // Validación del campo "Tipo de Proyecto"
+            const tipoProyectoRadios = document.getElementsByName('tipo-proyecto');
+            let tipoProyectoSeleccionado = false;
+            tipoProyectoRadios.forEach(radio => {
+                if (radio.checked) {
+                    tipoProyectoSeleccionado = true;
+                }
+            });
+            if (!tipoProyectoSeleccionado) {
+                mostrarError(tipoProyectoRadios[0], "Por favor, selecciona un tipo de proyecto.");
+                formularioValido = false;
+            }
+
+            return formularioValido;
         }
 
         function validarCorreo(correo) {
             const regex = /\S+@\S+\.\S+/;
             return regex.test(correo);
+        }
+
+        function reiniciarEstilos() {
+            const elementos = [nombreInput, empresaInput, correoInput, descripcionInput, telefonoInput, paisSelect];
+            elementos.forEach(elemento => {
+                elemento.classList.remove('error-border');
+                const errorSpan = document.getElementById(elemento.id + '-error');
+                if (errorSpan) {
+                    errorSpan.textContent = "";
+                }
+            });
+        }
+
+        function mostrarError(elemento, mensaje) {
+            elemento.classList.add('error-border');
+            const errorSpan = document.getElementById(elemento.id + '-error');
+            if (errorSpan) {
+                errorSpan.textContent = mensaje;
+            }
         }
     </script>
 </body>
