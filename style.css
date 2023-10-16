@@ -16,8 +16,6 @@ body {
     margin: 0 auto;
 }
 
-/* Estilos de la navegación */
-/* Estilos de la navegación */
 nav {
     background-color: #333;
     color: #fff;
@@ -44,6 +42,40 @@ nav a {
     padding: 10px 20px;
     transition: background-color 0.3s; /* Agregamos una transición suave al color de fondo */
 }
+
+/* Efecto de hover */
+nav a:hover {
+    background-color: #555; /* Cambia el color de fondo al pasar el cursor */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -87,7 +119,6 @@ nav a {
         position: absolute;
         top: 0;
         left: 50px;
-
     }
     nav {
         width: 100%;
@@ -128,9 +159,4 @@ nav a {
     nav input[type="checkbox"]:checked + label + a+ a + a +a + a+ a + a{
         display: none;
     }
-}
-
-/* Efecto de hover */
-nav a:hover {
-    background-color: #555; /* Cambia el color de fondo al pasar el cursor */
 }

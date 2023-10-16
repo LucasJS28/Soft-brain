@@ -1,11 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soft-Brain</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .slider {
+            width: 100%;
+            max-width: 800px;
+            /* Ajusta el ancho del slider según tus preferencias */
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .slider img {
+            width: 70%;
+            height: auto;
+            display: none;
+            margin: 0 auto;
+            border-radius: 30px;
+            border: 3px solid black;
+        }
+
+        .slider img:first-child {
+            display: block;
+        }
+
+        .tituloprincipal {
+            text-align: center;
+            color: darkblue;
+
+        }
+
+        .accordion {
+            cursor: pointer;
+            padding: 10px;
+            background-color: #f2f2f2;
+            border: none;
+            text-align: left;
+            width: 100%;
+            border-top: 2px solid #ddd;
+        }
+
+        .panel {
+            display: none;
+            padding: 10px;
+            border-top: 2px solid #ddd;
+        }
+
+        .active,
+        .accordion:hover {
+            background-color: #ddd;
+        }
+
+        .titulosecundario {
+            text-align: center;
+            font-size: 20px;
+        }
+    </style>
 </head>
+
 <body>
     <nav>
         <input type="checkbox" id="menu-toggle">
@@ -17,11 +73,112 @@
         <a href="login.html">Iniciar Sesion</a>
         <a class="img_logo" href="index.html"><img class="img_logo" src="imagenes/logo.png" alt="Logo Empresarial"></a>
     </nav>
-    
-    <div class="container">
-        <div class="titulo"><h1>Soft-brain</h1></div>
-    </div>
-</body>
 
+    <div class="container">
+        <div class="tituloprincipal">
+            <h1>Soft-Brain</h1>
+        </div>
+
+        <div class="slider">
+            <img src="flayers/flayer1.png" alt="Imagen 1">
+            <img src="flayers/flayer2.png" alt="Imagen 1">
+        </div>
+        <div class="descripcion">
+            <h3 class="titulosecundario">Preguntas Frecuentes</h3>
+
+            <!-- Primer Pregunta -->
+            <button class="accordion">¿Qué servicios ofrece Soft-Brain?</button>
+            <div class="panel">
+                <p>En Soft-Brain ofrecemos servicios de desarrollo web, marketing en línea y soporte técnico.</p>
+            </div>
+
+            <!-- Segunda Pregunta -->
+            <button class="accordion">¿Cómo puedo contactar a Soft-Brain?</button>
+            <div class="panel">
+                <p>Puede contactarnos a través de nuestro formulario de contacto en el sitio web o llamando al número de
+                    teléfono proporcionado en la sección "Contacto".</p>
+            </div>
+
+            <!-- Tercera Pregunta (Inventada) -->
+            <button class="accordion">¿Cuál es el tiempo de respuesta para el soporte técnico?</button>
+            <div class="panel">
+                <p>Nuestro equipo de soporte técnico se esfuerza por responder en un plazo de 24 horas hábiles después
+                    de recibir su solicitud.</p>
+            </div>
+            <button class="accordion">¿Cuál es el costo de los servicios de Soft-Brain?</button>
+            <div class="panel">
+                <p>El costo de nuestros servicios varía según las necesidades específicas de cada proyecto. Te
+                    recomendamos contactarnos para obtener un presupuesto personalizado y gratuito.</p>
+            </div>
+
+            <!-- Quinta Pregunta (Inventada) -->
+            <button class="accordion">¿Tienen experiencia en el desarrollo de tiendas en línea?</button>
+            <div class="panel">
+                <p>Sí, en Soft-Brain contamos con amplia experiencia en el desarrollo de tiendas en línea. Hemos
+                    trabajado con numerosos clientes para crear exitosas plataformas de comercio electrónico que han
+                    incrementado sus ventas en línea.</p>
+            </div>
+
+            <!-- Sexta Pregunta (Inventada) -->
+            <button class="accordion">¿Qué plataformas de comercio electrónico recomiendan para mi negocio?</button>
+            <div class="panel">
+                <p>Recomendamos plataformas de comercio electrónico como Shopify, WooCommerce y Magento, dependiendo de
+                    tus necesidades y presupuesto. Trabajaremos contigo para determinar la mejor opción para tu negocio.
+                </p>
+            </div>
+
+            <!-- Séptima Pregunta (Inventada) -->
+            <button class="accordion">¿Pueden ayudarme a mejorar mi presencia en redes sociales?</button>
+            <div class="panel">
+                <p>Sí, ofrecemos servicios de marketing en redes sociales para aumentar la visibilidad de tu negocio en
+                    plataformas como Facebook, Instagram y LinkedIn. Creamos estrategias personalizadas para mejorar tu
+                    presencia en las redes sociales y atraer a tu público objetivo.</p>
+            </div>
+
+            <!-- Octava Pregunta (Inventada) -->
+            <button class="accordion">¿Qué garantías ofrecen en el servicio técnico?</button>
+            <div class="panel">
+                <p>Garantizamos un servicio técnico de alta calidad. Si experimentas problemas con nuestros servicios,
+                    nuestro equipo de soporte técnico trabajará diligentemente para solucionar cualquier inconveniente y
+                    asegurarse de que tus sistemas funcionen de manera óptima.</p>
+            </div>
+        </div>
+        <script>
+
+            const accordions = document.querySelectorAll(".accordion");
+            for (const accordion of accordions) {
+                accordion.addEventListener("click", function () {
+                    this.classList.toggle("active");
+                    const panel = this.nextElementSibling;
+                    if (panel.style.display === "block") {
+                        panel.style.display = "none";
+                    } else {
+                        panel.style.display = "block";
+                    }
+                });
+            }
+            let slideIndex = 0;
+            showSlides();
+
+            function showSlides() {
+                let i;
+                const slides = document.querySelectorAll(".slider img");
+
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+
+                slideIndex++;
+
+                if (slideIndex > slides.length) {
+                    slideIndex = 1;
+                }
+
+                slides[slideIndex - 1].style.display = "block";
+                setTimeout(showSlides, 3000); // Cambia la imagen cada 3 segundos (ajusta el valor según tus necesidades)
+            }
+
+        </script>
+</body>
 
 </html>
