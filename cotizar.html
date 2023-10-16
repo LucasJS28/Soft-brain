@@ -1,32 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cotizar</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap">
 </head>
+<style>
+    .container {
+        background-color: #fff;
+        padding: 20px;
+        padding-right: 50px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .titulo {
+        text-align: center;
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-weight: 500;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"],
+    select,
+    textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        background-color: #f5f5f5;
+    }
+
+    textarea {
+        height: 100px;
+    }
+
+    input[type="radio"] {
+        margin-right: 5px;
+    }
+
+    button {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #444;
+    }
+
+    input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    margin-right: 5px;
+    position: relative;
+}
+
+/* Estilos para los radio buttons seleccionados */
+input[type="radio"]:checked {
+    background-color: #333;
+    border: 2px solid #333;
+}
+
+/* Estilos para las etiquetas de los radio buttons */
+label input[type="radio"] {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    top: 4px;
+}
+
+/* Estilos adicionales para las etiquetas de los radio buttons */
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 16px; /* Ajusta el tamaño de fuente según tus preferencias */
+}
+
+/* Estilos para el contenedor de radio buttons */
+.radio-container {
+    margin-top: 10px;
+}
+
+
+    @media (max-width: 768px) {
+        .titulo{
+            font-size: 14px;
+        }
+    }
+</style>
+
 <body>
     <nav>
         <input type="checkbox" id="menu-toggle">
         <label for="menu-toggle" class="menu-icon">&#9776;</label>
-        <a href="index.html"><i class="fas fa-home"></i>  Inicio</a>
+        <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
         <a href="servicios.html"><i class="fas fa-server"></i> Nuestros Servicios</a>
         <a href="sobreNosotros.html"><i class="fas fa-clipboard-list"></i> Sobre Nosotros</a>
         <a href="clientes.html"><i class="fas fa-user-friends"></i> Nuestros Clientes</a>
         <a href="login.html"><i class="fas fa-sign-in-alt"></i> Iniciar Sesion</a>
         <a class="img_logo" href="index.html"><img class="img_logo" src="imagenes/logo.png" alt="Logo Empresarial"></a>
     </nav>
-    
+
     <div class="container">
-        <div class="titulo"><h1>Cotizacion</h1></div>
+        <div class="titulo">
+            <h1>Cotizacion</h1>
+        </div>
         <form id="contact-form">
             <label for="nombre">Nombre de Contacto:</label>
             <input type="text" id="nombre" name="nombre" required><br><br>
-    
+
             <label for="empresa">Empresa:</label>
             <input type="text" id="empresa" name="empresa"><br><br>
-    
+
             <label for="pais">País:</label>
             <select id="pais" name="pais">
                 <option value="Selecciona un país">Selecciona un país</option>
@@ -37,37 +142,38 @@
                 <option value="Perú">Perú</option>
                 <!-- Agrega más países aquí -->
             </select><br><br>
-    
+
             <label for="telefono">Teléfono:</label>
-            <input type="tel" id="telefono" name="telefono" maxlength="12" required><br><br>
-    
+            <input type="tel" id="telefono" name="telefono" maxlength="12" required oninput="this.value = this.value.replace(/[^0-9+\s]/g, '');"><br><br>
+
+
             <label for="correo">Correo:</label>
             <input type="email" id="correo" name="correo" required><br><br>
-    
+
             <label>Descripción de Proyecto:</label><br>
             <textarea id="descripcion" name="descripcion" rows="4" cols="50"></textarea><br><br>
-    
+
             <label>Tipo de Proyecto:</label><br>
             <label><input checked type="radio" name="tipo-proyecto" value="Pagina Web"> Página Web</label><br>
             <label><input type="radio" name="tipo-proyecto" value="Marketing"> Marketing</label><br>
             <label><input type="radio" name="tipo-proyecto" value="Servicio Tecnico"> Servicio Técnico</label><br><br>
-    
+
             <button type="button" id="enviar">Enviar</button>
         </form>
     </div>
 
     <script>
-        // Define un objeto que mapea códigos de países a números de teléfono
+    
         const codigosPaises = {
-            "Argentina": "+54",
-            "Brasil": "+55",
-            "México": "+52",
-            "Chile": "+56",
-            "Perú": "+51",
-            // Agrega más códigos de país para los países adicionales
+            "Argentina": "+54 ",
+            "Brasil": "+55 ",
+            "México": "+52 ",
+            "Chile": "+56 ",
+            "Perú": "+51 ",
+        
         };
 
-        // Obtiene los elementos del formulario
+  
         const paisSelect = document.getElementById('pais');
         const telefonoInput = document.getElementById('telefono');
         const enviarButton = document.getElementById('enviar');
@@ -76,30 +182,27 @@
         const descripcionInput = document.getElementById('descripcion');
         const empresaInput = document.getElementById('empresa');
 
-        // Agrega un event listener para el cambio en el select de país
-        paisSelect.addEventListener('change', function() {
+        paisSelect.addEventListener('change', function () {
             const selectedPais = paisSelect.value;
             if (codigosPaises[selectedPais]) {
                 telefonoInput.value = codigosPaises[selectedPais];
             }
         });
 
-        // Agrega un event listener para el botón de enviar
-        enviarButton.addEventListener('click', function() {
+
+        enviarButton.addEventListener('click', function () {
             if (validarFormulario()) {
-                // Agrega la lógica para enviar el formulario aquí.
             }
         });
 
-        // Agrega un event listener para restringir la edición de los primeros 4 dígitos
-        telefonoInput.addEventListener('input', function() {
+        telefonoInput.addEventListener('input', function () {
             const telefonoValue = telefonoInput.value;
             if (telefonoValue.length < 4) {
                 telefonoInput.value = codigosPaises[paisSelect.value] || '';
             }
         });
 
-        // Función para validar el formulario
+  
         function validarFormulario() {
             if (nombreInput.value.trim() === "") {
                 alert("El campo 'Nombre de Contacto' no puede estar vacío.");
@@ -126,12 +229,11 @@
                 return false;
             }
 
-            
+
             alert("Formulario Enviado, Pronto Recibira su Respuesta");
             return true;
         }
 
-        // Función para validar el formato de correo electrónico
         function validarCorreo(correo) {
             const regex = /\S+@\S+\.\S+/;
             return regex.test(correo);
