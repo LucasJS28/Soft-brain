@@ -1,0 +1,108 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Estilos de la navegación */
+/* Estilos de la navegación */
+nav {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    max-width: 200px;
+    position: relative; /* Agrega posición relativa al nav */
+}
+
+nav .img_logo {
+    width: 200px;
+    position: absolute;
+    bottom: 30px;
+    left: 50%; /* Centra horizontalmente */
+    transform: translateX(-50%); /* Alinea el centro de la imagen con el centro del nav */
+}
+
+/* Resto de tus estilos... */
+
+
+nav a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: background-color 0.3s; /* Agregamos una transición suave al color de fondo */
+}
+
+
+
+
+/* Estilos responsivos */
+@media (min-width: 768px) {
+    /* En pantallas grandes, coloca la navegación a la izquierda */
+    nav {
+        width: 20%;
+        position: fixed;
+        height: 100%;
+        overflow-y: auto;
+    }
+
+    .container {
+        margin-left: 20%;
+    }
+}
+
+/* Estilos para el menú de navegación desplegable */
+.menu-icon {
+    font-size: 30px;
+    cursor: pointer;
+    display: none;
+}
+
+nav input[type="checkbox"] {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    nav .img_logo {
+        display: none;
+    }
+    nav {
+        width: 100%;
+        max-width: none;
+        padding: 20px 0;
+        text-align: center;
+        height: auto;
+    }
+
+    nav a {
+        display: block;
+        padding: 10px 0;
+    }
+
+    nav input[type="checkbox"]:checked + label + a {
+        display: block;
+    }
+
+    nav input[type="checkbox"]:checked + label + a {
+        display: none;
+    }
+}
+
+/* Efecto de hover */
+nav a:hover {
+    background-color: #555; /* Cambia el color de fondo al pasar el cursor */
+}
