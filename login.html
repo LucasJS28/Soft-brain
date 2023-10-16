@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="estilos.css">
 </head>
-
 <body>
     <nav>
         <input type="checkbox" id="menu-toggle">
@@ -18,7 +17,7 @@
         <a href="sobreNosotros.html">Sobre Nosotros</a>
         <a href="clientes.html">Nuestros Clientes</a>
         <a href="login.html">Iniciar Sesion</a>
-        <a href="cotizar.html">Cotizacion</a>
+        <a href="cotizar.html" style="display: none;" class="cotizacion-link">Cotizacion</a>
         <a class="img_logo" href="index.html"><img class="img_logo" src="imagenes/logo.png" alt="Logo Empresarial"></a>
     </nav>
 
@@ -78,6 +77,8 @@
         const loginBtn = document.querySelector("label.login");
         const signupBtn = document.querySelector("label.signup");
         const signupLink = document.querySelector("form .signup-link a");
+        const userAuthenticated = false; // Cambia esto según tu lógica de autenticación
+        const cotizacionLink = document.querySelector(".cotizacion-link");
 
         // Variables para almacenar credenciales (esto no es seguro en producción)
         let users = [];
@@ -107,6 +108,7 @@
 
             if (user) {
                 alert("Inicio de sesión exitoso");
+                cotizacionLink.style.display = "block"; // Muestra el enlace
             } else {
                 alert("Credenciales incorrectas");
             }
