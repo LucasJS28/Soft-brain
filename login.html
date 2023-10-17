@@ -21,7 +21,7 @@
         <a href="sobreNosotros.html"><i class="fas fa-clipboard-list"></i> Sobre Nosotros</a>
         <a href="clientes.html"><i class="fas fa-user-friends"></i> Nuestros Clientes</a>
         <a href="login.html"><i class="fas fa-sign-in-alt"></i> Iniciar Sesion</a>
-        <a href="cotizar.html" style="display: none;" class="cotizacion-link"><i class="fas fa-cash-register"></i> Cotización</a>
+        <!-- <a href="cotizar.html" style="display: none;" class="cotizacion-link"><i class="fas fa-cash-register"></i> Cotización</a> -->
         <a class="img_logo" href="index.html"><img class="img_logo" src="imagenes/logo.png" alt="Logo Empresarial"></a>
     </nav>
 
@@ -113,11 +113,11 @@
 
             if (user) {
                 alert("Inicio de sesión exitoso");
-                cotizacionLink.style.display = "block"; // Muestra el enlace
+                window.location = "cotizar.html";
                 userAuthenticated = true; 
             } else {
                 alert("Credenciales incorrectas");
-                cotizacionLink.style.display = "none"; // Muestra el enlace
+                
             }
         });
 
