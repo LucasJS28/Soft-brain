@@ -134,7 +134,34 @@ nav a:hover {
 
 
 
+.redes img {
+    width: 40px;
+    transition: transform 0.3s; /* Agregar una transición para hacerlo suave */
+}
 
+.redes img:hover {
+    transform: scale(1.5); /* Aumentar el tamaño al 120% en hover */
+}
+
+.redes img:not(:hover) {
+    transform: scale(1); /* Volver al tamaño original en not hover */
+}
+
+.redes {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 40px;
+}
+
+@media (max-width: 768px) {
+    .redes {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: unset;
+    }
+}
 
 
 
