@@ -36,7 +36,7 @@ nav {
 nav .img_logo {
     width: 200px;
     position: absolute;
-    bottom: 40px;
+    bottom: 50px;
     left: 50%; /* Centra horizontalmente */
     transform: translateX(-50%); /* Alinea el centro de la imagen con el centro del nav */
 }

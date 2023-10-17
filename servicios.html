@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +12,7 @@
 </head>
 
 <style>
-    .contenedorimg{
+    .contenedorimg {
         width: 100%;
         max-width: 800px;
         margin: 0 auto;
@@ -19,7 +20,8 @@
         text-align: center;
         margin-top: 30px;
     }
-    .imagenes{
+
+    .imagenes {
         width: 50%;
         text-align: center;
         margin-bottom: 20px;
@@ -29,7 +31,7 @@
     }
 
     @media (max-width: 768px) {
-        .imagenes{
+        .imagenes {
             width: 96%;
         }
     }
@@ -60,12 +62,26 @@
         border-radius: 30px;
     }
 
+    .panel {
+        margin-left: 0;
+    }
+
+    .panel .panel {
+        margin-left: 20px;
+        /* Aumenta este valor según tu preferencia */
+    }
+
+    .panel .panel .panel {
+        margin-left: 40px;
+        /* Aumenta este valor según tu preferencia */
+    }
 </style>
+
 <body>
     <nav>
         <input type="checkbox" id="menu-toggle">
         <label for="menu-toggle" class="menu-icon">&#9776;</label>
-        <a href="index.html"><i class="fas fa-home"></i>  Inicio</a>
+        <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
         <a href="servicios.html"><i class="fas fa-server"></i> Nuestros Servicios</a>
         <a href="sobreNosotros.html"><i class="fas fa-clipboard-list"></i> Sobre Nosotros</a>
         <a href="clientes.html"><i class="fas fa-user-friends"></i> Nuestros Clientes</a>
@@ -73,31 +89,141 @@
         <a href="login.html"><i class="fas fa-sign-in-alt"></i> Iniciar Sesion</a>
         <a class="img_logo" href="index.html"><img class="img_logo" src="imagenes/logo.png" alt="Logo Empresarial"></a>
     </nav>
-    
+
     <div class="container">
-        <div class="titulo"><h1>Nuestros Servicios</h1></div>
-        <p>Soft-brain es una empresa líder en innovación tecnológica, dedicada a brindar soluciones integrales para satisfacer las necesidades digitales de empresas 
-            y emprendedores. Nuestra misión es potenciar el éxito de nuestros clientes en el mundo en línea a través de una amplia gama de servicios especializados,</p>
-            <div class="descripcion">
-                <h3 class="titulosecundario">Preguntas Frecuentes</h3>
-                <!-- Primer Pregunta -->
-                <button class="accordion"><i class="far fa-question-circle"></i> ¿Qué servicios ofrece Soft-Brain?</button>
+        <div class="titulo">
+            <h1>Nuestros Servicios</h1>
+        </div>
+        <p>Soft-brain es una empresa líder en innovación tecnológica, dedicada a brindar soluciones integrales para
+            satisfacer las necesidades digitales de empresas
+            y emprendedores. Nuestra misión es potenciar el éxito de nuestros clientes en el mundo en línea a través de
+            una amplia gama de servicios especializados,</p>
+        <div class="descripcion">
+            <h3 class="titulosecundario">Preguntas Frecuentes</h3>
+            <!-- Primer Pregunta -->
+            <button class="accordion"><i class="fas fa-question-circle fa-spin"></i> ¿Qué servicios ofrece
+                Soft-Brain?</button>
+            <div class="panel">
+                <button class="accordion"><i class="fas fa-desktop"></i> Servicio Tecnico</button>
                 <div class="panel">
-                    <p>En Soft-Brain ofrecemos servicios de desarrollo web, marketing en línea y soporte técnico.</p>
+                    <button class="accordion"><i class="fas fa-memory"></i> Ampliación de RAM</button>
+                    <div class="panel">
+                        <p>En nuestros servicios, podemos aumentar la cantidad de memoria RAM de sus computadoras para
+                            que funcionen más rápido y manejen múltiples tareas sin problemas. Experimentarán una mejora
+                            significativa en el rendimiento.</p>
+                    </div>
+
+                    <button class="accordion"><i class="fas fa-hdd"></i> Reemplazo de Disco Duro por SSD</button>
+                    <div class="panel">
+                        <p>Si sus computadoras están lentas, podemos reemplazar los discos duros tradicionales por SSDs
+                            de alta velocidad. Notarán un arranque más rápido y una mayor capacidad de respuesta en
+                            todas sus aplicaciones.</p>
+                    </div>
+
+                    <button class="accordion"><i class="fas fa-screwdriver"></i> Limpieza y Mantenimiento</button>
+                    <div class="panel">
+                        <p>Ofrecemos servicios de limpieza y mantenimiento para eliminar el polvo acumulado y
+                            asegurarnos de que la ventilación esté en óptimas condiciones. Esto ayudará a prevenir el
+                            sobrecalentamiento y a prolongar la vida útil de sus equipos.</p>
+                    </div>
+
+                    <button class="accordion"><i class="fas fa-cogs"></i> Optimización de Software</button>
+                    <div class="panel">
+                        <p>Podemos limpiar y optimizar sus sistemas operativos, eliminando software no deseado y
+                            mejorando la velocidad de inicio. Sus PCs se sentirán más ágiles.</p>
+                    </div>
+                    <button class="accordion"><i class="fas fa-virus"></i> Eliminación de Virus y Malware</button>
+                    <div class="panel">
+                        <p>Nuestro equipo de expertos puede escanear y eliminar virus, malware y otras amenazas de
+                            seguridad de sus dispositivos, asegurando un entorno de trabajo seguro y protegido.</p>
+                    </div>
+
+                    <button class="accordion"><i class="fas fa-network-wired"></i> Configuración de Red</button>
+                    <div class="panel">
+                        <p>Ofrecemos servicios de configuración de redes para optimizar la conectividad de sus
+                            dispositivos, ya sea en su hogar o lugar de trabajo. Esto incluye la instalación y
+                            configuración de routers, switchs y conexiones Wi-Fi.</p>
+                    </div>
+
+                    <button class="accordion"><i class="fas fa-sync"></i> Respaldo de Datos</button>
+                    <div class="panel">
+                        <p>Realizamos copias de seguridad regulares de sus datos importantes para prevenir la pérdida de
+                            información crítica. Ya sea en la nube o en dispositivos externos, su información estará
+                            segura y accesible en caso de emergencia.</p>
+                    </div>
+
+                    <button class="accordion"><i class="fas fa-file-code"></i> Reparación de Software</button>
+                    <div class="panel">
+                        <p>Si experimenta problemas con el sistema operativo, aplicaciones o programas, nuestros
+                            expertos pueden diagnosticar y reparar problemas de software para asegurarse de que sus
+                            dispositivos funcionen sin interrupciones.</p>
+                    </div>
                 </div>
-    
-                <!-- Segunda Pregunta -->
-                <button class="accordion"><i class="far fa-question-circle"></i> ¿Cómo puedo contactar a Soft-Brain?</button>
+                <button class="accordion"><i class="fas fa-chart-bar"></i> Estrategias de Marketing</button>
                 <div class="panel">
-                    <p>Puede contactarnos a través de nuestro formulario de contacto en el sitio web o llamando al número de
-                        teléfono proporcionado en la sección "Contacto".</p>
-                </div>    
+                    <button class="accordion"><i class="fas fa-share-alt"></i> Publicidad en Redes Sociales</button>
+                    <div class="panel">
+                        <p>Nuestra agencia puede crear y gestionar campañas publicitarias efectivas en redes sociales
+                            para aumentar la visibilidad de su marca y atraer a su audiencia objetivo.</p>
+                    </div>
+
+                    <button class="accordion"><i class="fas fa-envelope"></i> Email Marketing</button>
+                    <div class="panel">
+                        <p>Le ayudaremos a diseñar estrategias de email marketing para llegar a sus clientes de manera
+                            efectiva, proporcionando contenido relevante y promociones especiales.</p>
+                    </div>
+
+                    <button class="accordion"><i class="fas fa-search"></i> SEO y Optimización de Contenido</button>
+                    <div class="panel">
+                        <p>Nuestros expertos en SEO pueden optimizar su contenido web y mejorar su clasificación en los
+                            motores de búsqueda, lo que aumentará el tráfico orgánico a su sitio web.</p>
+                    </div>
+
+                    <button class="accordion"><i class="fas fa-pencil-alt"></i> Marketing de Contenidos</button>
+                    <div class="panel">
+                        <p>Desarrollamos estrategias de marketing de contenidos para crear contenido relevante y valioso
+                            que atraiga a su audiencia y fortalezca su presencia en línea.</p>
+                    </div>
+                </div>
+                <button class="accordion"><i class="fas fa-code"></i> Creación de Páginas WEB</button>
+                <div class="panel">
+                    <button class="accordion"><i class="fas fa-paint-brush"></i> Diseño de Sitios Web
+                        Personalizados</button>
+                    <div class="panel">
+                        <p>Crearemos un sitio web a medida que se adapte a sus necesidades y refleje la identidad de su
+                            marca, brindando una experiencia única a sus visitantes.</p>
+                    </div>
+
+                    <button class="accordion"><i class="fas fa-shopping-cart"></i> Tiendas en Línea</button>
+                    <div class="panel">
+                        <p>Desarrollamos tiendas en línea seguras y funcionales que le permiten vender sus productos o
+                            servicios en línea, con opciones de pago y gestión de inventario.</p>
+                    </div>
+
+                    <button class="accordion"><i class="fas fa-blog"></i> Blogging y Gestión de Contenido</button>
+                    <div class="panel">
+                        <p>Si necesita un blog o desea mantener su sitio actualizado, ofrecemos servicios de gestión de
+                            contenido para crear y administrar publicaciones informativas y atractivas.</p>
+                    </div>
+
+                    <button class="accordion"><i class="fas fa-mobile-alt"></i> Optimización para Dispositivos
+                        Móviles</button>
+                    <div class="panel">
+                        <p>Adaptaremos su sitio web para que se vea y funcione de manera óptima en dispositivos móviles,
+                            asegurando una experiencia fluida para los visitantes desde cualquier dispositivo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <div class="contenedorimg">
             <img class="imagenes" src="flayers/flayer1.png" alt="imagen1" onclick="openModal('flayers/flayer1.png')">
             <img class="imagenes" src="flayers/flayer2.png" alt="imagen2" onclick="openModal('flayers/flayer2.png')">
             <img class="imagenes" src="flayers/flayer3.png" alt="imagen3" onclick="openModal('flayers/flayer3.png')">
         </div>
     </div>
+
 
     <!-- Pantalla modal -->
     <div id="myModal" class="modal">
@@ -106,20 +232,24 @@
         </span>
     </div>
 
+
+
+
+
     <script>
-        
+
         const accordions = document.querySelectorAll(".accordion");
-            for (const accordion of accordions) {
-                accordion.addEventListener("click", function () {
-                    this.classList.toggle("active");
-                    const panel = this.nextElementSibling;
-                    if (panel.style.display === "block") {
-                        panel.style.display = "none";
-                    } else {
-                        panel.style.display = "block";
-                    }
-                });
-            }
+        for (const accordion of accordions) {
+            accordion.addEventListener("click", function () {
+                this.classList.toggle("active");
+                const panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }
         function openModal(imageUrl) {
             const modal = document.getElementById('myModal');
             const modalImage = document.getElementById('modalImage');
@@ -128,9 +258,10 @@
         }
 
         const modal = document.getElementById('myModal');
-        modal.onclick = function() {
+        modal.onclick = function () {
             modal.style.display = 'none';
         };
     </script>
 </body>
+
 </html>
