@@ -6,7 +6,7 @@
   
 }
 ::selection {
-  background: #1a75ff;
+  background: #333333;
   color: #fff;
 }
 .wrapper {
@@ -61,7 +61,7 @@
   left: 0;
   z-index: 0;
   border-radius: 15px;
-  background: -webkit-linear-gradient(left, #003366, #004080, #0059b3, #0073e6);
+  background: -webkit-linear-gradient(left, #333333, #333561, #333355, #333333);
   transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 input[type="radio"] {
@@ -115,7 +115,7 @@ input[type="radio"] {
   box-sizing: border-box;
 }
 .form-inner form .field input:focus {
-  border-color: #1a75ff;
+  border-color: #333333;
   /* box-shadow: inset 0 0 3px #fb6aae; */
 }
 .form-inner form .field input::placeholder {
@@ -123,7 +123,7 @@ input[type="radio"] {
   transition: all 0.3s ease;
 }
 form .field input:focus::placeholder {
-  color: #1a75ff;
+  color: #333333;
 }
 .form-inner form .pass-link {
   margin-top: 5px;
@@ -134,7 +134,7 @@ form .field input:focus::placeholder {
 }
 .form-inner form .pass-link a,
 .form-inner form .signup-link a {
-  color: #1a75ff;
+  color: #6d6d6d;
   text-decoration: none;
 }
 .form-inner form .pass-link a:hover,
@@ -155,10 +155,10 @@ form .btn .btn-layer {
   left: -100%;
   background: -webkit-linear-gradient(
     right,
-    #003366,
-    #004080,
-    #0059b3,
-    #0073e6
+    #333333,
+    #333333,
+    #333333,
+    #333333
   );
   border-radius: 15px;
   transition: all 0.4s ease;
