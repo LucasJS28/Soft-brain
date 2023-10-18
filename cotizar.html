@@ -146,6 +146,12 @@
         color: black;
         font-weight: 600;
     }
+    #limpiar{
+        float: right;
+        background-color: rgb(201, 33, 33);
+        border: 1px solid black;
+        font-size: 15px;
+    }
 
 </style>
 
@@ -234,12 +240,24 @@
             <span class="error-message" id="tipo-proyecto-error"></span>
 
             <button type="button" id="enviar">Enviar</button>
+            <button type="button" id="limpiar">🗑️</button>
+
         </form>
 
     </div>
 
 
     <script>
+
+const limpiarButton = document.getElementById('limpiar');
+    
+    limpiarButton.addEventListener('click', function () {
+        // Restablecer el formulario a su estado inicial
+        document.getElementById('contact-form').reset();
+
+        // Reiniciar los estilos y mensajes de error
+        reiniciarEstilos();
+    });
       // Agrega el siguiente script para mostrar u ocultar los campos opcionales al hacer clic en el enlace
     const mostrarCamposEnlace = document.getElementById('mostrar-campos-enlace');
     const camposOpcionales = document.getElementById('campos-opcionales');
