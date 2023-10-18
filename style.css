@@ -135,7 +135,8 @@ nav a:hover {
 
 
 .redes img {
-    width: 40px;
+    width: 35px;
+    padding: 5px;
     transition: transform 0.3s; /* Agregar una transición para hacerlo suave */
 }
 
@@ -269,4 +270,5 @@ nav a:hover {
     nav input[type="checkbox"]:checked + label + a+ a + a +a + a+ a + a{
         display: none;
     }
+    
 }
