@@ -111,7 +111,7 @@
     }
 
     .error-border {
-        border: 1px solid red;
+        border: 1px solid red !important;
     }
 
     @media (max-width: 768px) {
@@ -119,13 +119,22 @@
             font-size: 14px;
         }
     }
+
+    #fecha-envio{
+        background-color: #e4e2e2 ;   
+    }
+
+    #mostrar-campos-enlace{
+        color: #333;
+        font-weight: 700;
+    }
 </style>
 
 <body>
     <nav>
         <input type="checkbox" id="menu-toggle">
         <label for="menu-toggle" class="menu-icon">&#9776;</label>
-        <a href="index.html"><i class="fas fa-home"></i>  Inicio</a>
+        <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
         <a href="servicios.html"><i class="fas fa-server"></i> Nuestros Servicios</a>
         <a href="sobreNosotros.html"><i class="fas fa-clipboard-list"></i> Sobre Nosotros</a>
         <a href="clientes.html"><i class="fas fa-user-friends"></i> Nuestros Clientes</a>
@@ -133,9 +142,12 @@
         <a href="login.html"><i class="fas fa-sign-in-alt"></i> Iniciar Sesion</a>
         <a class="img_logo" href="index.html"><img class="img_logo" src="imagenes/logo.png" alt="Logo Empresarial"></a>
         <div class="redes">
-            <a class="anclaaa" href="https://i.ytimg.com/vi/CHdsyy6w30g/maxresdefault.jpg"><img src="imagenes/logoig.png" alt=""></a>
-            <a class="anclaaa" href="https://i.ytimg.com/vi/CHdsyy6w30g/maxresdefault.jpg"><img src="imagenes/logotwi.png" alt=""></a>
-            <a class="anclaaa" href="https://i.ytimg.com/vi/CHdsyy6w30g/maxresdefault.jpg"><img src="imagenes/logows.png" alt=""></a>
+            <a class="anclaaa" href="https://i.ytimg.com/vi/CHdsyy6w30g/maxresdefault.jpg"><img
+                    src="imagenes/logoig.png" alt=""></a>
+            <a class="anclaaa" href="https://i.ytimg.com/vi/CHdsyy6w30g/maxresdefault.jpg"><img
+                    src="imagenes/logotwi.png" alt=""></a>
+            <a class="anclaaa" href="https://i.ytimg.com/vi/CHdsyy6w30g/maxresdefault.jpg"><img
+                    src="imagenes/logows.png" alt=""></a>
         </div>
     </nav>
 
@@ -144,17 +156,21 @@
             <h1>Cotizacion</h1>
         </div>
         <form id="contact-form">
+            <label for="fecha-envio">Fecha de la Solicitud</label>
+            <input type="text" id="fecha-envio" name="fecha-envio" disabled><br>
+            <span class="error-message" id="fecha-envio-error"></span>
+
             <label for="nombre">Nombre de Contacto:</label>
-            <input type="text" id="nombre" name="nombre" required><br>
+            <input type="text" id="nombre" name="nombre" required placeholder="Introduce tu nombre"><br>
             <span class="error-message" id="nombre-error"></span>
 
             <label for="empresa">Empresa:</label>
-            <input type="text" id="empresa" name="empresa"><br>
+            <input type="text" id="empresa" name="empresa" required placeholder="Nombre de la empresa"><br>
             <span class="error-message" id="empresa-error"></span>
 
             <label for="pais">País:</label>
             <select id="pais" name="pais">
-                <option value="Selecciona un país">Selecciona un país</option>
+                <option value="Selecciona un país" disabled selected>Selecciona un país</option>
                 <option value="Argentina">Argentina</option>
                 <option value="Brasil">Brasil</option>
                 <option value="México">México</option>
@@ -165,31 +181,72 @@
             <span class="error-message" id="pais-error"></span>
 
             <label for="telefono">Teléfono:</label>
-            <input type="tel" id="telefono" name="telefono" maxlength="12" required
+            <input type="tel" id="telefono" name="telefono" maxlength="12" required placeholder="Número de teléfono"
                 oninput="this.value = this.value.replace(/[^0-9+\s]/g, '');"><br>
             <span class="error-message" id="telefono-error"></span>
 
             <label for="correo">Correo:</label>
-            <input type="email" id="correo" name="correo" required><br>
+            <input type="email" id="correo" name="correo" required placeholder="Tu dirección de correo electrónico"><br>
             <span class="error-message" id="correo-error"></span>
-
             <label>Descripción de Proyecto:</label><br>
-            <textarea id="descripcion" name="descripcion" rows="4" cols="50"></textarea><br>
+            <textarea id="descripcion" name="descripcion" rows="4" cols="50"
+                placeholder="Describe tu proyecto aquí"></textarea><br>
             <span class="error-message" id="descripcion-error"></span>
+            <br><br>
 
+            <a href="#" id="mostrar-campos-enlace">Mostrar Campos Opcionales</a>
+
+            <div id="campos-opcionales" style="display: none;">
+                <!-- Aquí coloca los campos opcionales que deseas mostrar -->
+                <label for="presupuesto">Presupuesto Estimado:</label>
+                <input type="text" id="presupuesto" name="presupuesto" placeholder="Ingrese su Presupuesto Estimado (Opcional)"
+                    oninput="this.value = this.value.replace(/[^0-9+\s]/g, '');"><br>
+            
+                <label for="sitio">Sitio Web de la Empresa:</label>
+                <input type="text" id="sitio" name="sitio" placeholder="Sitio Web de la Empresa (Opcional)"><br>
+            </div>
+<br><br>
             <label>Tipo de Proyecto:</label><br>
             <label><input checked type="radio" name="tipo-proyecto" value="Pagina Web"> Página Web</label><br>
             <label><input type="radio" name="tipo-proyecto" value="Marketing"> Marketing</label><br>
-            <label><input type="radio" name="tipo-proyecto" value="Servicio Tecnico"> Servicio Técnico</label><br><br>
+            <label><input type="radio" name="tipo-proyecto" value="Servicio Tecnico"> Servicio Técnico</label><br>
+            <label><input type="radio" name="tipo-proyecto" value="Otro"> Otro</label><br><br>
             <span class="error-message" id="tipo-proyecto-error"></span>
 
             <button type="button" id="enviar">Enviar</button>
         </form>
+
     </div>
 
 
     <script>
+      // Agrega el siguiente script para mostrar u ocultar los campos opcionales al hacer clic en el enlace
+    const mostrarCamposEnlace = document.getElementById('mostrar-campos-enlace');
+    const camposOpcionales = document.getElementById('campos-opcionales');
 
+    mostrarCamposEnlace.addEventListener('click', function (e) {
+        e.preventDefault(); // Evita que el enlace cambie la URL
+        if (camposOpcionales.style.display === 'none') {
+            camposOpcionales.style.display = 'block';
+            mostrarCamposEnlace.textContent = 'Ocultar Campos Opcionales';
+        } else {
+            camposOpcionales.style.display = 'none';
+            mostrarCamposEnlace.textContent = 'Mostrar Campos Opcionales';
+        }
+    });
+        function obtenerFechaYHoraActual() {
+            const now = new Date();
+            const day = String(now.getDate()).padStart(2, '0');
+            const month = String(now.getMonth() + 1).padStart(2, '0'); // Enero es 0
+            const year = now.getFullYear();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            return `${day}-${month}-${year} ${hours}:${minutes}:${seconds}`;
+        }
+
+        // Establecer la fecha y hora actual en el campo de fecha de envío
+        document.getElementById('fecha-envio').value = obtenerFechaYHoraActual();
         const codigosPaises = {
             "Argentina": "+54 ",
             "Brasil": "+55 ",
