@@ -114,12 +114,24 @@
         border: 1px solid red !important;
     }
 
+    #pais {
+        width: 102%; /* Esta regla se aplica por defecto */
+        font-size: 14px;
+    }
+
+    #pais option{
+        font-size: 15px;
+    }
+
     @media (max-width: 768px) {
         .titulo {
             font-size: 14px;
         }
-    }
 
+        #pais {
+            width: 106%; /* Esta regla se aplica en pantallas <= 768px */
+        }
+    }
     #fecha-envio{
         background-color: #e4e2e2 ;   
     }
@@ -128,6 +140,7 @@
         color: #333;
         font-weight: 700;
     }
+
 </style>
 
 <body>
