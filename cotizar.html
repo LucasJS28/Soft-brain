@@ -182,7 +182,8 @@
         </div>
         <form id="contact-form">
             <label for="fecha-envio">Fecha de la Solicitud</label>
-            <input type="text" id="fecha-envio" name="fecha-envio" disabled><br>
+            <input type="text" id="fecha-envio" name="fecha-envio" disabled class="fecha-no-limpiar"><br>
+
             <span class="error-message" id="fecha-envio-error"></span>
 
             <label for="nombre">Nombre de Contacto:</label>
@@ -252,8 +253,15 @@
 const limpiarButton = document.getElementById('limpiar');
     
     limpiarButton.addEventListener('click', function () {
+        // Guardar el valor de fecha de solicitud antes de limpiar
+        const fechaEnvioInput = document.querySelector('.fecha-no-limpiar');
+        const fechaEnvioValue = fechaEnvioInput.value;
+
         // Restablecer el formulario a su estado inicial
         document.getElementById('contact-form').reset();
+
+        // Restaurar el valor de fecha de solicitud
+        fechaEnvioInput.value = fechaEnvioValue;
 
         // Reiniciar los estilos y mensajes de error
         reiniciarEstilos();
