@@ -135,7 +135,7 @@ nav a:hover {
 
 
 .redes img {
-    width: 35px;
+    width: 30px !important;
     padding: 5px;
     transition: transform 0.3s; /* Agregar una transición para hacerlo suave */
 }
