@@ -229,7 +229,8 @@ nav a:hover {
         width: 120px;
         position: absolute;
         top: 0;
-        left: 50px;                                                                                 
+        left: 50px;   
+        display: block;                                                                              
     }
     nav {
         width: 100%;
@@ -270,5 +271,7 @@ nav a:hover {
     nav input[type="checkbox"]:checked + label + a+ a + a +a + a+ a + a{
         display: none;
     }
-    
+    nav input[type="checkbox"]:checked + label + a+ a + a +a + a+ a + a+.redes{
+        display: none;
+    }
 }
