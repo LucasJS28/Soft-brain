@@ -75,13 +75,87 @@
         margin-left: 40px;
         /* Aumenta este valor según tu preferencia */
     }
+
+    .slide-container .prev,
+    .slide-container .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        margin-top: -22px;
+        padding: 16px;
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+        transition: all 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+    }
+
+    .slide-container .prev:hover,
+    .slide-container .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+    }
+
+    .slide-container .prev {
+        left: 2px;
+    }
+
+    .slide-container .next {
+        right: 2px;
+    }
+
+    .dots-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .dots-container .dot {
+        cursor: pointer;
+        margin: 5px;
+        width: 20px;
+        height: 20px;
+        color: #333;
+        border-radius: 50%;
+        background-color: #dfd6ce;
+    }
+
+    .dots-container .dot.active {
+        border: 2px solid green;
+    }
+
+
+    .slide-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 500px;
+        margin: auto;
+        position: relative;
+    }
+
+    .slide-container .slide {
+        display: none;
+        width: 100%;
+    }
+
+    .slide-container .slide.fade {
+        animation: fade 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+    }
+
+    .slide-container .slide img {
+        width: 100%;
+    }
 </style>
 
 <body>
     <nav>
         <input type="checkbox" id="menu-toggle">
         <label for="menu-toggle" class="menu-icon">&#9776;</label>
-        <a href="index.html"><i class="fas fa-home"></i>  Inicio</a>
+        <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
         <a href="servicios.html"><i class="fas fa-server"></i> Nuestros Servicios</a>
         <a href="sobreNosotros.html"><i class="fas fa-clipboard-list"></i> Sobre Nosotros</a>
         <a href="clientes.html"><i class="fas fa-user-friends"></i> Nuestros Clientes</a>
@@ -89,9 +163,12 @@
         <a href="login.html"><i class="fas fa-sign-in-alt"></i> Iniciar Sesion</a>
         <a class="img_logo" href="index.html"><img class="img_logo" src="imagenes/logo.png" alt="Logo Empresarial"></a>
         <div class="redes">
-            <a class="anclaaa" href="https://i.ytimg.com/vi/CHdsyy6w30g/maxresdefault.jpg"><img src="imagenes/logoig.png" alt=""></a>
-            <a class="anclaaa" href="https://i.ytimg.com/vi/CHdsyy6w30g/maxresdefault.jpg"><img src="imagenes/logotwi.png" alt=""></a>
-            <a class="anclaaa" href="https://i.ytimg.com/vi/CHdsyy6w30g/maxresdefault.jpg"><img src="imagenes/logows.png" alt=""></a>
+            <a class="anclaaa" href="https://i.ytimg.com/vi/CHdsyy6w30g/maxresdefault.jpg"><img
+                    src="imagenes/logoig.png" alt=""></a>
+            <a class="anclaaa" href="https://i.ytimg.com/vi/CHdsyy6w30g/maxresdefault.jpg"><img
+                    src="imagenes/logotwi.png" alt=""></a>
+            <a class="anclaaa" href="https://i.ytimg.com/vi/CHdsyy6w30g/maxresdefault.jpg"><img
+                    src="imagenes/logows.png" alt=""></a>
         </div>
     </nav>
 
@@ -220,16 +297,32 @@
                 </div>
             </div>
         </div>
-
-
-        <div class="contenedorimg">
-            <img class="imagenes" src="flayers/flayer1.png" alt="imagen1" onclick="openModal('flayers/flayer1.png')">
-            <img class="imagenes" src="flayers/flayer2.png" alt="imagen2" onclick="openModal('flayers/flayer2.png')">
-            <img class="imagenes" src="flayers/flayer3.png" alt="imagen3" onclick="openModal('flayers/flayer3.png')">
-        </div>
     </div>
 
+    <div class="container">
+        <div class="slide-container">
+            <div class="slide fade">
+                <img class="imagenes" src="flayers/flayer1.png" alt="imagen1"
+                    onclick="openModal('flayers/flayer1.png')">
+            </div>
+            <div class="slide fade">
+                <img class="imagenes" src="flayers/flayer2.png" alt="imagen2"
+                    onclick="openModal('flayers/flayer2.png')">
+            </div>
+            <div class="slide fade">
+                <img class="imagenes" src="flayers/flayer3.png" alt="imagen3"
+                    onclick="openModal('flayers/flayer3.png')">
+            </div>
 
+            <a href="javascript:void(0)" class="prev" title="Previous">&#10094</a>
+            <a href="javascript:void(0)" class="next" title="Next">&#10095</a>
+        </div>
+        <div class="dots-container">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </div>
     <!-- Pantalla modal -->
     <div id="myModal" class="modal">
         <span class="modal-content">
@@ -242,6 +335,48 @@
 
 
     <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll(".slide")
+        const dots = document.querySelectorAll('.dot')
+
+        const init = (n) => {
+            slides.forEach((slide, index) => {
+                slide.style.display = "none"
+                dots.forEach((dot, index) => {
+                    dot.classList.remove("active")
+                })
+            })
+            slides[n].style.display = "block"
+            dots[n].classList.add("active")
+        }
+        document.addEventListener("DOMContentLoaded", init(currentSlide))
+        const next = () => {
+            currentSlide >= slides.length - 1 ? currentSlide = 0 : currentSlide++
+            init(currentSlide)
+        }
+
+        const prev = () => {
+            currentSlide <= 0 ? currentSlide = slides.length - 1 : currentSlide--
+            init(currentSlide)
+        }
+
+        document.querySelector(".next").addEventListener('click', next)
+
+        document.querySelector(".prev").addEventListener('click', prev)
+
+
+        setInterval(() => {
+            next()
+        }, 5000);
+
+        dots.forEach((dot, i) => {
+            dot.addEventListener("click", () => {
+                console.log(currentSlide)
+                init(i)
+                currentSlide = i
+            })
+        })
+
 
         const accordions = document.querySelectorAll(".accordion");
         for (const accordion of accordions) {
