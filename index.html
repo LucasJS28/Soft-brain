@@ -24,6 +24,12 @@
         transform: scale(1); /* Volver al tamaño original en not hover */
     }
 
+    .videopresentacion{
+        width: 60%;
+        border: 2px solid black;
+        border-radius: 10px;
+    }
+
     .redes {
         display: flex;
         justify-content: center;
@@ -38,7 +44,13 @@
             align-items: center;
             position: unset;
         }
+        .videopresentacion{
+        width: 100%;
     }
+
+    }
+
+
 </style>
 
 
@@ -64,13 +76,10 @@
         <div class="titulo">
             <h1>[Soft-Brain SpA]</h1>
             <p style="color: black;">Para enviar tu cotización, por favor inicia sesión y luego nos pondremos en contacto contigo.</p>
+            <video class="videopresentacion" src="videos/videoportada.mp4" autoplay controls muted></video>
         </div>
 
-        <div class="slider">
-            <img src="flayers/flayer1.png" alt="Imagen 1">
-            <img src="flayers/flayer2.png" alt="Imagen 1">
-            <img src="flayers/flayer3.png" alt="Imagen 1">
-        </div>
+        
         <div class="descripcion">
             <h3 class="titulosecundario">Preguntas Frecuentes</h3>
             <!-- Primer Pregunta -->
