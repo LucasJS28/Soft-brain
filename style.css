@@ -16,6 +16,11 @@ body {
     margin: 0 auto;
 }
 
+
+.menu-icon{
+    color: white !important;
+}
+
 .titulo{
     text-align: center;
     font-weight: 600;
@@ -253,23 +258,26 @@ nav a:hover {
     nav input[type="checkbox"]:checked + label + a {
         display: none;
     }
-    nav input[type="checkbox"]:checked + label + a+ a  {
+    nav input[type="checkbox"]:checked + label + a  +a {
         display: none;
     }
-    nav input[type="checkbox"]:checked + label + a+ a +a {
+    nav input[type="checkbox"]:checked + label + a+ a + a  {
         display: none;
     }
-    nav input[type="checkbox"]:checked + label + a+ a + a +a {
+    nav input[type="checkbox"]:checked + label + a+ a +a +a {
         display: none;
     }
-    nav input[type="checkbox"]:checked + label + a+ a + a +a + a{
+    nav input[type="checkbox"]:checked + label + a+ a + a +a +a {
         display: none;
     }
-    nav input[type="checkbox"]:checked + label + a+ a + a +a + a+ a{
+    nav input[type="checkbox"]:checked + label + a+ a + a +a + a +a{
+        display: none;
+    }
+    nav input[type="checkbox"]:checked + label + a+ a + a +a + a+ a+a{
         display: none;
     }
 
-    nav input[type="checkbox"]:checked + label + a+ a + a +a + a+ a + a+.redes{
+    nav input[type="checkbox"]:checked + label + a+ a + a +a + a+ a + a+a+.redes{
         display: none;
     }
 }
