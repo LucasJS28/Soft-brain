@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- Pagina Realiza por Lucas Jimenez Sepulveda https://github.com/LucasJS28 -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +18,8 @@
             width: 90%;
         }
 
-        .servicio-tecnico, .duenos {
+        .servicio-tecnico,
+        .duenos {
             margin-top: 30px;
             padding: 20px;
             border: 1px solid #ccc;
@@ -25,12 +27,9 @@
             background-color: #f7f7f7;
         }
 
-        .servicio-tecnico h2, .duenos h2 {
-            font-size: 24px;
-            color: #333;
-        }
 
-        .servicio-tecnico p, .duenos ul {
+        .servicio-tecnico p,
+        .duenos ul {
             font-size: 16px;
             color: #666;
         }
@@ -43,11 +42,13 @@
             list-style-type: disc;
             padding-left: 20px;
         }
-        #logoempresa{
+
+        #logoempresa {
             margin: 0 auto;
             text-align: center;
         }
-        #logoempresa img{
+
+        #logoempresa img {
             width: 350px;
             display: block;
             margin: 0 auto;
@@ -55,11 +56,12 @@
         }
     </style>
 </head>
+
 <body>
     <nav>
         <input type="checkbox" id="menu-toggle">
         <label for="menu-toggle" class="menu-icon">&#9776;</label>
-        <a href="index.html"><i class="fas fa-home"></i>  Inicio</a>
+        <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
         <a href="servicios.html"><i class="fas fa-server"></i> Nuestros Servicios</a>
         <a href="sobreNosotros.html"><i class="fas fa-clipboard-list"></i> Sobre Nosotros</a>
         <a href="clientes.html"><i class="fas fa-user-friends"></i> Nuestros Clientes</a>
@@ -68,36 +70,68 @@
         <a href="login.html"><i class="fas fa-sign-in-alt"></i> Iniciar Sesion</a>
         <a class="img_logo" href="index.html"><img class="img_logo" src="imagenes/logo.png" alt="Logo Empresarial"></a>
         <div class="redes">
-            <a class="anclaaa" href="https://i.ytimg.com/vi/CHdsyy6w30g/maxresdefault.jpg"><img src="imagenes/logoig.png" alt=""></a>
-            <a class="anclaaa" href="https://i.ytimg.com/vi/CHdsyy6w30g/maxresdefault.jpg"><img src="imagenes/logotwi.png" alt=""></a>
-            <a class="anclaaa" href="https://i.ytimg.com/vi/CHdsyy6w30g/maxresdefault.jpg"><img src="imagenes/logows.png" alt=""></a>
+            <a class="anclaaa" href="https://i.ytimg.com/vi/CHdsyy6w30g/maxresdefault.jpg"><img
+                    src="imagenes/logoig.png" alt=""></a>
+            <a class="anclaaa" href="https://i.ytimg.com/vi/CHdsyy6w30g/maxresdefault.jpg"><img
+                    src="imagenes/logotwi.png" alt=""></a>
+            <a class="anclaaa" href="https://i.ytimg.com/vi/CHdsyy6w30g/maxresdefault.jpg"><img
+                    src="imagenes/logows.png" alt=""></a>
         </div>
     </nav>
     <div class="container">
-        <div class="titulo"><h1>Sobre Nosotros</h1></div>
-        <p>En Soft-brain, nuestro equipo de servicio técnico altamente calificado está dedicado a garantizar que sus sistemas y aplicaciones funcionen sin problemas. Estamos disponibles las 24 horas del día, los 7 días de la semana, para brindar soporte técnico confiable y eficiente. Ya sea que necesite resolver problemas técnicos, asesoramiento o mantenimiento preventivo, estamos aquí para ayudar.</p>
+        <div class="titulo">
+            <h1>Sobre Nosotros</h1>
+        </div>
+        <p>En Soft-brain, nuestro equipo de servicio técnico altamente calificado está dedicado a garantizar que sus
+            sistemas y aplicaciones funcionen sin problemas. Estamos disponibles las 24 horas del día, los 7 días de la
+            semana, para brindar soporte técnico confiable y eficiente. Ya sea que necesite resolver problemas técnicos,
+            asesoramiento o mantenimiento preventivo, estamos aquí para ayudar.</p>
         <div id="logoempresa"> <img src="imagenes/logov2.png" alt=""></div>
         <!-- Información sobre el servicio técnico -->
         <div class="servicio-tecnico">
-            <h2>Servicio Técnico</h2>
-            <p>En Soft-brain, ofrecemos servicios técnicos confiables y eficientes para garantizar el funcionamiento ininterrumpido de los sistemas y aplicaciones de nuestros clientes. Nuestro equipo de técnicos altamente capacitados está disponible para resolver problemas técnicos, brindar asesoramiento y realizar mantenimiento preventivo. La satisfacción del cliente es nuestra principal prioridad en cada interacción con el servicio técnico.</p>
+            <div class="titulo">
+                <h2>Servicio Tecnico</h2>
+            </div>
+            <p>En Soft-brain, ofrecemos servicios técnicos confiables y eficientes para garantizar el funcionamiento
+                ininterrumpido de los sistemas y aplicaciones de nuestros clientes. Nuestro equipo de técnicos altamente
+                capacitados está disponible para resolver problemas técnicos, brindar asesoramiento y realizar
+                mantenimiento preventivo. La satisfacción del cliente es nuestra principal prioridad en cada interacción
+                con el servicio técnico.</p>
         </div>
-        
+
         <!-- Información sobre los dueños de la empresa -->
         <div class="duenos">
-            <h2>Equipo Fundador</h2>
+            <div class="titulo">
+                <h2>Equipo Fundador</h2>
+            </div>
             <ul>
-                <li><strong>Lucas Jimenez:</strong> Co-fundador y Director Ejecutivo. Lucas es un experto en tecnología con una amplia experiencia en el desarrollo de soluciones digitales innovadoras. Su visión y liderazgo son fundamentales para el éxito de Soft-brain.</li>
-                <li><strong>Jorge Bustamante:</strong> Co-fundador y Director de Operaciones. Jorge supervisa la gestión diaria de la empresa y garantiza la entrega puntual de servicios de alta calidad. Es un apasionado de la eficiencia operativa.</li>
-                <li><strong>Matías Olivares:</strong> Co-fundador y Director de Marketing. Matías es el cerebro creativo detrás de nuestras estrategias de marketing digital. Su enfoque en la generación de leads y la mejora de la conversión ha impulsado el crecimiento de nuestros clientes.</li>
+                <li><strong style="color: black; font-weight: 700; font-style: italic;">Lucas Jimenez:</strong>
+                    Co-fundador y Director Ejecutivo. Lucas es un experto en tecnología con una amplia experiencia en el
+                    desarrollo de soluciones digitales innovadoras. Su visión y liderazgo son fundamentales para el
+                    éxito de Soft-brain, Programador Principal pagina de SoftBrain</li>
+                <li><strong style="color: black; font-weight: 700; font-style: italic;">Jorge Bustamante:</strong>
+                    Co-fundador y Director de Operaciones. Jorge supervisa la gestión diaria de la empresa y garantiza
+                    la entrega puntual de servicios de alta calidad. Es un apasionado de la eficiencia operativa.</li>
+                <li><strong style="color: black; font-weight: 700; font-style: italic;">Matías Olivares:</strong>
+                    Co-fundador y Director de Marketing. Matías es el cerebro creativo detrás de nuestras estrategias de
+                    marketing digital. Su enfoque en la generación de leads y la mejora de la conversión ha impulsado el
+                    crecimiento de nuestros clientes.</li>
             </ul>
         </div>
-        
+
         <div class="mapa">
-            <!-- Mapa de ubicación -->
-            <h3>Nuestra Ubicacion (Soporte Tecnico)</h3>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3251.0500174571857!2d-71.67561149033104!3d-35.42879096632245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9665c41ed574bf39%3A0xc72ac71c1b588758!2sAv.%20Carlos%20Schorr%20255%2C%203460000%20Talca%2C%20Maule!5e0!3m2!1ses!2scl!4v1697508722102!5m2!1ses!2scl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="titulo">
+                <h2>Nuestra Ubicacion (Soporte Tecnico)</h2>
+            </div>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3251.0500174571857!2d-71.67561149033104!3d-35.42879096632245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9665c41ed574bf39%3A0xc72ac71c1b588758!2sAv.%20Carlos%20Schorr%20255%2C%203460000%20Talca%2C%20Maule!5e0!3m2!1ses!2scl!4v1697508722102!5m2!1ses!2scl"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
+        <br>
+        <p style="font-weight: 700; text-align: center;">Todos los derechos de autor están reservados por <span
+                style="color: red;">@SoftbrainSpa.</span></p>
     </div>
 </body>
+
 </html>

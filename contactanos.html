@@ -217,31 +217,71 @@
 
 
 <script>
-    let fileInput = document.getElementById("file-upload-input");
-    let fileSelect = document.getElementsByClassName("file-upload-select")[0];
-    let fileListItem = document.querySelector(".file-list");
+     let fileInput = document.getElementById("file-upload-input");
+        let fileSelect = document.querySelector(".file-upload-select");
+        let fileListItem = document.querySelector(".file-list");
+        let body = document.body;
 
-    fileSelect.onclick = function () {
-        fileInput.click();
-    }
+        fileSelect.ondragover = function () {
+            body.classList.add("dragging");
+            fileSelect.classList.add("dragging");
+            return false;
+        };
 
-    fileInput.onchange = function () {
-        for (let i = 0; i < fileInput.files.length; i++) {
-            let filename = fileInput.files[i].name;
-            let fileItem = document.createElement("div");
-            fileItem.className = "file-item";
-            fileItem.innerHTML = `
-                <span>${filename}</span>
-                <button class="remove-button">Eliminar</button>
-            `;
-            fileListItem.appendChild(fileItem);
+        fileSelect.ondragleave = fileSelect.ondragend = function () {
+            body.classList.remove("dragging");
+            fileSelect.classList.remove("dragging");
+            return false;
+        };
 
-            let removeButton = fileItem.querySelector(".remove-button");
-            removeButton.addEventListener("click", function () {
-                fileListItem.removeChild(fileItem);
-            });
-        }
-    }
+        fileSelect.ondrop = function (e) {
+            e.preventDefault();
+            body.classList.remove("dragging");
+            fileSelect.classList.remove("dragging");
+
+            for (let i = 0; i < e.dataTransfer.files.length; i++) {
+                let file = e.dataTransfer.files[i];
+                let filename = file.name;
+                let fileItem = document.createElement("div");
+                fileItem.className = "file-item";
+                fileItem.innerHTML = `
+                    <span>${filename}</span>
+                    <button class="remove-button">Eliminar</button>
+                `;
+                fileListItem.appendChild(fileItem);
+
+                let removeButton = fileItem.querySelector(".remove-button");
+                removeButton.addEventListener("click", function () {
+                    fileListItem.removeChild(fileItem);
+                });
+
+                // Automatically populate the file input with the dropped file
+                fileInput.files = e.dataTransfer.files;
+            }
+            return false;
+        };
+
+        fileSelect.onclick = function () {
+            fileInput.click();
+        };
+
+        fileInput.onchange = function () {
+            for (let i = 0; i < fileInput.files.length; i++) {
+                let filename = fileInput.files[i].name;
+                let fileItem = document.createElement("div");
+                fileItem.className = "file-item";
+                fileItem.innerHTML = `
+                    <span>${filename}</span>
+                    <button class="remove-button">Eliminar</button>
+                `;
+                fileListItem.appendChild(fileItem);
+
+                let removeButton = fileItem.querySelector(".remove-button");
+                removeButton.addEventListener("click", function () {
+                    fileListItem.removeChild(fileItem);
+                });
+            }
+        };
 </script>
 
 </html>
