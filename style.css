@@ -22,13 +22,13 @@ body {
 }
 
 .titulo{
-    text-align: center;
-    font-weight: 600;
-    color: #001973;
-    font-size: 16px;
-    margin: 0 auto;
-    margin-bottom: 20px;
-    font-family: 'Inter', sans-serif;
+    text-align: center !important;
+    font-weight: 600 !important;
+    color: #001973 !important;
+    font-size: 16px !important;
+    margin: 0 auto !important;
+    margin-bottom: 20px !important;
+    font-family: 'Inter', sans-serif !important;
 }
 nav {
     background-color: #333;
