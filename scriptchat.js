@@ -60,3 +60,20 @@ function displayAnswer(questionNumber) {
     msgTextarea.value = chatText;
     msgTextarea.scrollTop = msgTextarea.scrollHeight;
 }
+
+window.onscroll = function() {
+    var chatButton = document.getElementById("chatButton");
+    if (window.scrollY >= 400) {
+        chatButton.style.display = "none"; // Ocultar el botón
+    } else {
+        chatButton.style.display = "block"; // Mostrar el botón
+    }
+};
+
+function openForm() {
+    document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+}
