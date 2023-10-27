@@ -24,7 +24,7 @@ function displayAnswer(questionNumber) {
         "¿Cuáles son los servicios de SEO y Optimización de Contenido de Soft-Brain?",
         "¿En qué consiste el Marketing de Contenidos de Soft-Brain?",
         "¿Qué servicios de Creación de Páginas Web ofrece Soft-Brain?",
-        
+
     ];
 
     var answers = [
@@ -44,7 +44,7 @@ function displayAnswer(questionNumber) {
         "Los servicios de SEO y Optimización de Contenido de Soft-Brain mejoran el contenido de su sitio web y su clasificación en los motores de búsqueda para aumentar el tráfico orgánico.",
         "El Marketing de Contenidos se centra en la creación de contenido relevante y valioso para atraer a su audiencia y fortalecer su presencia en línea.",
         "Los servicios de Creación de Páginas Web de Soft-Brain incluyen el Diseño de Sitios Web Personalizados que se adaptan a sus necesidades y reflejan la identidad de su marca.",
-    
+
     ];
 
     var msgTextarea = document.getElementById("msg");
@@ -61,29 +61,18 @@ function displayAnswer(questionNumber) {
     msgTextarea.scrollTop = msgTextarea.scrollHeight;
 }
 
-window.onscroll = function() {
+window.onscroll = function () {
     var chatButton = document.getElementById("chatButton");
-    if (window.scrollY >= 400) {
-        chatButton.style.opacity = "0"; // Hacerlo gradualmente invisible
+    if (window.scrollY >= 700) {
+        chatButton.style.display = "none"; // Ocultar el botón
     } else {
-        chatButton.style.opacity = "1"; // Hacerlo gradualmente visible
+        chatButton.style.display = "block"; // Mostrar el botón
     }
 };
 
-
-function openForm() {
-    document.getElementById("myForm").style.display = "block";
-}
-
-function closeForm() {
-    document.getElementById("myForm").style.display = "none";
-}
-
-var questionLinks = document.querySelectorAll('.questions-container a');
-questionLinks.forEach(function(link) {
-    link.addEventListener('click', function(event) {
-        event.stopPropagation(); // Evita que el clic se propague al documento
-    });
+var questionContainer = document.querySelector('.questions-container');
+questionContainer.addEventListener('click', function (event) {
+    event.stopPropagation(); // Evitar la propagación del evento al documento
 });
 
 document.addEventListener('click', function (event) {
@@ -93,3 +82,31 @@ document.addEventListener('click', function (event) {
         chatPopup.style.display = 'none';
     }
 });
+
+
+var chatPopup = document.getElementById('myForm');
+var chatButton = document.getElementById('chatButton');
+
+chatPopup.addEventListener('click', function (event) {
+    event.stopPropagation(); // Evitar la propagación del evento al documento
+});
+
+document.addEventListener('click', function (event) {
+    if (event.target !== chatPopup && event.target !== chatButton) {
+        chatPopup.style.display = 'none';
+    }
+});
+var questionLinks = document.querySelectorAll('.questions-container a');
+questionLinks.forEach(function (link) {
+    link.addEventListener('click', function (event) {
+        event.preventDefault(); // Evitar que el enlace haga una navegación
+        event.stopPropagation(); // Evitar la propagación del evento al documento
+    });
+});
+function openForm() {
+    document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+}
