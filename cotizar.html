@@ -177,8 +177,10 @@
     <div class="container">
         <div class="titulo">
             <h1>Cotizacion</h1>
-        </div>
-        <form id="contact-form">
+        </div> 
+        <form id="contact-form" action="https://formspree.io/f/xpzgbkrr"
+        method="POST"
+      >
             <label for="fecha-envio">Fecha de la Solicitud</label>
             <input type="text" id="fecha-envio" name="fecha-envio" disabled class="fecha-no-limpiar"><br>
 
@@ -238,7 +240,7 @@
             <label><input type="radio" name="tipo-proyecto" value="Otro"> Otro</label><br><br>
             <span class="error-message" id="tipo-proyecto-error"></span>
 
-            <button type="button" id="enviar">Enviar</button>
+            <button type="submit" id="enviar">Enviar</button>
             <button type="button" id="limpiar">🗑️</button>
 
         </form>
