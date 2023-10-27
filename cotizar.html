@@ -116,12 +116,11 @@
     }
 
     #pais {
-        width: 102%;
-        /* Esta regla se aplica por defecto */
+        width: 102%; /* Esta regla se aplica por defecto */
         font-size: 14px;
     }
 
-    #pais option {
+    #pais option{
         font-size: 15px;
     }
 
@@ -131,39 +130,37 @@
         }
 
         #pais {
-            width: 106%;
-            /* Esta regla se aplica en pantallas <= 768px */
+            width: 106%; /* Esta regla se aplica en pantallas <= 768px */
         }
     }
-
-    #fecha-envio {
-        background-color: #e4e2e2;
+    #fecha-envio{
+        background-color: #e4e2e2 ;   
     }
 
-    #mostrar-campos-enlace {
+    #mostrar-campos-enlace{
         color: #333;
         font-weight: 700;
     }
 
-    #fecha-envio {
+    #fecha-envio{
         font-size: 15px;
         color: black;
         font-weight: 600;
     }
-
-    #limpiar {
+    #limpiar{
         float: right;
         background-color: rgb(201, 33, 33);
         border: 1px solid black;
         font-size: 15px;
     }
+
 </style>
 
 <body>
     <nav>
         <input type="checkbox" id="menu-toggle">
         <label for="menu-toggle" class="menu-icon">&#9776;</label>
-        <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
+        <a href="index.html"><i class="fas fa-home"></i>  Inicio</a>
         <a href="servicios.html"><i class="fas fa-server"></i> Nuestros Servicios</a>
         <a href="sobreNosotros.html"><i class="fas fa-clipboard-list"></i> Sobre Nosotros</a>
         <a href="clientes.html"><i class="fas fa-user-friends"></i> Nuestros Clientes</a>
@@ -172,20 +169,19 @@
         <a href="login.html"><i class="fas fa-sign-in-alt"></i> Iniciar Sesion</a>
         <a class="img_logo" href="index.html"><img class="img_logo" src="imagenes/logo.png" alt="Logo Empresarial"></a>
         <div class="redes">
-            <a class="anclaaa" href="https://i.ytimg.com/vi/CHdsyy6w30g/maxresdefault.jpg"><img
-                    src="imagenes/logoig.png" alt=""></a>
-            <a class="anclaaa" href="https://i.ytimg.com/vi/CHdsyy6w30g/maxresdefault.jpg"><img
-                    src="imagenes/logotwi.png" alt=""></a>
-            <a class="anclaaa" href="https://i.ytimg.com/vi/CHdsyy6w30g/maxresdefault.jpg"><img
-                    src="imagenes/logows.png" alt=""></a>
+            <a class="anclaaa" href="https://i.ytimg.com/vi/CHdsyy6w30g/maxresdefault.jpg"><img src="imagenes/logoig.png" alt=""></a>
+            <a class="anclaaa" href="https://i.ytimg.com/vi/CHdsyy6w30g/maxresdefault.jpg"><img src="imagenes/logotwi.png" alt=""></a>
+            <a class="anclaaa" href="https://i.ytimg.com/vi/CHdsyy6w30g/maxresdefault.jpg"><img src="imagenes/logows.png" alt=""></a>
         </div>
     </nav>
 
     <div class="container">
         <div class="titulo">
             <h1>Cotizacion</h1>
-        </div>
-        <form id="contact-form" action="https://formspree.io/f/xpzgbkrr" method="POST">
+        </div> 
+        <form id="contact-form" action="https://formspree.io/f/xpzgbkrr"
+        method="POST"
+      >
             <label for="fecha-envio">Fecha de la Solicitud</label>
             <input type="text" id="fecha-envio" name="fecha-envio" disabled class="fecha-no-limpiar"><br>
 
@@ -231,14 +227,13 @@
                 <!-- Aquí coloca los campos opcionales que deseas mostrar -->
                 <br>
                 <label for="presupuesto">Presupuesto Estimado:</label>
-                <input type="text" id="presupuesto" name="presupuesto"
-                    placeholder="Ingrese su Presupuesto Estimado (Opcional)"
+                <input type="text" id="presupuesto" name="presupuesto" placeholder="Ingrese su Presupuesto Estimado (Opcional)"
                     oninput="this.value = this.value.replace(/[^0-9+\s]/g, '');"><br>
-
+            
                 <label for="sitio">Sitio Web de la Empresa:</label>
                 <input type="text" id="sitio" name="sitio" placeholder="Sitio Web de la Empresa (Opcional)"><br>
             </div>
-            <br><br>
+<br><br>
             <label>Tipo de Proyecto:</label><br>
             <label><input checked type="radio" name="tipo-proyecto" value="Pagina Web"> Página Web</label><br>
             <label><input type="radio" name="tipo-proyecto" value="Marketing"> Marketing</label><br>
@@ -256,36 +251,36 @@
 
     <script>
 
-        const limpiarButton = document.getElementById('limpiar');
+const limpiarButton = document.getElementById('limpiar');
+    
+    limpiarButton.addEventListener('click', function () {
+        // Guardar el valor de fecha de solicitud antes de limpiar
+        const fechaEnvioInput = document.querySelector('.fecha-no-limpiar');
+        const fechaEnvioValue = fechaEnvioInput.value;
 
-        limpiarButton.addEventListener('click', function () {
-            // Guardar el valor de fecha de solicitud antes de limpiar
-            const fechaEnvioInput = document.querySelector('.fecha-no-limpiar');
-            const fechaEnvioValue = fechaEnvioInput.value;
+        // Restablecer el formulario a su estado inicial
+        document.getElementById('contact-form').reset();
 
-            // Restablecer el formulario a su estado inicial
-            document.getElementById('contact-form').reset();
+        // Restaurar el valor de fecha de solicitud
+        fechaEnvioInput.value = fechaEnvioValue;
 
-            // Restaurar el valor de fecha de solicitud
-            fechaEnvioInput.value = fechaEnvioValue;
+        // Reiniciar los estilos y mensajes de error
+        reiniciarEstilos();
+    });
+      // Agrega el siguiente script para mostrar u ocultar los campos opcionales al hacer clic en el enlace
+    const mostrarCamposEnlace = document.getElementById('mostrar-campos-enlace');
+    const camposOpcionales = document.getElementById('campos-opcionales');
 
-            // Reiniciar los estilos y mensajes de error
-            reiniciarEstilos();
-        });
-        // Agrega el siguiente script para mostrar u ocultar los campos opcionales al hacer clic en el enlace
-        const mostrarCamposEnlace = document.getElementById('mostrar-campos-enlace');
-        const camposOpcionales = document.getElementById('campos-opcionales');
-
-        mostrarCamposEnlace.addEventListener('click', function (e) {
-            e.preventDefault(); // Evita que el enlace cambie la URL
-            if (camposOpcionales.style.display === 'none') {
-                camposOpcionales.style.display = 'block';
-                mostrarCamposEnlace.textContent = 'Ocultar Campos Opcionales';
-            } else {
-                camposOpcionales.style.display = 'none';
-                mostrarCamposEnlace.textContent = 'Mostrar Campos Opcionales';
-            }
-        });
+    mostrarCamposEnlace.addEventListener('click', function (e) {
+        e.preventDefault(); // Evita que el enlace cambie la URL
+        if (camposOpcionales.style.display === 'none') {
+            camposOpcionales.style.display = 'block';
+            mostrarCamposEnlace.textContent = 'Ocultar Campos Opcionales';
+        } else {
+            camposOpcionales.style.display = 'none';
+            mostrarCamposEnlace.textContent = 'Mostrar Campos Opcionales';
+        }
+    });
         function obtenerFechaYHoraActual() {
             const now = new Date();
             const day = String(now.getDate()).padStart(2, '0');
