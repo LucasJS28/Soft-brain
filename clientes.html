@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap">
-    
+        <script src="scriptchat.js" defer></script>
+        <link rel="stylesheet" href="stylechat.css">
     
     <style>
         .slider-container {
@@ -122,6 +123,42 @@
                 <button class="slider-button next" onclick="moveSlider(1)">Siguiente</button>
             </div>
         </div>
+    </div>
+    <button class="open-button" onclick="openForm()">Chat</button>
+
+    <div class="chat-popup" id="myForm">
+        <form action="/action_page.php" class="form-container">
+            <i class="fa-solid fa-chalkboard-user"></i>
+            <h3>Chatea con Nosotros</h3>
+
+            <div class="chat-container">
+                <div class="chat-text">
+                    <textarea id="msg" placeholder="Esperando tu Mensaje.." name="msg" readonly></textarea>
+                </div>
+                <div class="chat-sidebar">
+                    <div class="questions-container">
+                        <a href="#" onclick="displayAnswer(1); return false;">¿Qué servicios ofrece Soft-Brain?</a>
+                        <a href="#" onclick="displayAnswer(2); return false;">¿Qué implica el Servicio Técnico de Soft-Brain?</a>
+                        <a href="#" onclick="displayAnswer(3); return false;">En qué consiste la Ampliación de RAM?</a>
+                        <a href="#" onclick="displayAnswer(4); return false;">¿Qué implica el Reemplazo de Disco Duro por SSD?</a>
+                        <a href="#" onclick="displayAnswer(5); return false;">¿En qué consiste la Limpieza y Mantenimiento de Soft-Brain?</a>
+                        <a href="#" onclick="displayAnswer(6); return false;">¿Qué significa la Optimización de Software de Soft-Brain?</a>
+                        <a href="#" onclick="displayAnswer(7); return false;">¿Ofrecen Eliminación de Virus y Malware?</a>
+                        <a href="#" onclick="displayAnswer(8); return false;">¿Cuáles son los servicios de Configuración de Red de Soft-Brain?</a>
+                        <a href="#" onclick="displayAnswer(9); return false;">¿Qué incluye el Respaldo de Datos de Soft-Brain?</a>
+                        <a href="#" onclick="displayAnswer(10); return false;">¿En qué consiste la Reparación de Software de Soft-Brain?</a>
+                        <a href="#" onclick="displayAnswer(11); return false;">¿Qué estrategias de marketing ofrece Soft-Brain?</a>
+                        <a href="#" onclick="displayAnswer(12); return false;">¿Qué implica la Publicidad en Redes Sociales de Soft-Brain?</a>
+                        <a href="#" onclick="displayAnswer(13); return false;">>¿Qué servicios de Email Marketing proporciona Soft-Brain?</a>
+                        <a href="#" onclick="displayAnswer(14); return false;">¿Cuáles son los servicios de SEO y Optimización de Contenido de Soft-Brain?</a>
+                        <a href="#" onclick="displayAnswer(15); return false;">¿En qué consiste el Marketing de Contenidos de Soft-Brain?</a>
+                        <a href="#" onclick="displayAnswer(16); return false;">¿Qué servicios de Creación de Páginas Web ofrece Soft-Brain?</a>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <button type="button" class="btn cancel" onclick="closeForm()">Cerrar</button>
+        </form>
     </div>
 
 

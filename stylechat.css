@@ -1,0 +1,99 @@
+/* Button used to open the chat form - fixed at the bottom of the page */
+.open-button {
+    padding: 10px 40px;
+    background-color: #04AA6D;
+    color: white;
+    font-size: 17px;
+    max-width: 300px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+}
+
+/* The popup chat - hidden by default */
+.chat-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+    max-width: 300px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #f7f7f7;
+    color: #333;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Full-width textarea */
+.form-container textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    border-radius: 20px;
+    background: #eee;
+    resize: none;
+    min-height: 200px;
+    color: #333;
+    box-sizing: border-box;
+}
+
+/* When the textarea gets focus, do something */
+.form-container textarea:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+/* Set a style for the submit/send button */
+.form-container .btn {
+    background-color: #04AA6D;
+    color: white;
+    font-size: 17px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+    background-color: #d9534f;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover,
+.open-button:hover {
+    opacity: 0.8;
+}
+
+.questions-container {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.questions-container a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    margin: 10px 0;
+    transition: color 0.3s;
+}
+
+.questions-container a:hover {
+    color: #04AA6D;
+}
