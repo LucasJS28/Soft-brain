@@ -64,11 +64,12 @@ function displayAnswer(questionNumber) {
 window.onscroll = function() {
     var chatButton = document.getElementById("chatButton");
     if (window.scrollY >= 400) {
-        chatButton.style.display = "none"; // Ocultar el botón
+        chatButton.style.opacity = "0"; // Hacerlo gradualmente invisible
     } else {
-        chatButton.style.display = "block"; // Mostrar el botón
+        chatButton.style.opacity = "1"; // Hacerlo gradualmente visible
     }
 };
+
 
 function openForm() {
     document.getElementById("myForm").style.display = "block";
@@ -77,3 +78,18 @@ function openForm() {
 function closeForm() {
     document.getElementById("myForm").style.display = "none";
 }
+
+var questionLinks = document.querySelectorAll('.questions-container a');
+questionLinks.forEach(function(link) {
+    link.addEventListener('click', function(event) {
+        event.stopPropagation(); // Evita que el clic se propague al documento
+    });
+});
+
+document.addEventListener('click', function (event) {
+    var chatPopup = document.getElementById('myForm');
+    var chatButton = document.getElementById('chatButton');
+    if (event.target !== chatPopup && event.target !== chatButton) {
+        chatPopup.style.display = 'none';
+    }
+});
