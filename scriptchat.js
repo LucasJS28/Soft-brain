@@ -79,15 +79,17 @@ function displayAnswer(questionNumber) {
   var msgTextarea = document.getElementById("msg");
   var question = questions[questionNumber - 1]; // Resta 1 al índice
   var answer = answers[questionNumber - 1]; // Resta 1 al índice
-  var chatText = msgTextarea.value;
+
+  // Borrar el contenido anterior del textarea
+  msgTextarea.value = "";
 
   // Agregar la pregunta y respuesta al textarea
-  chatText += "Pregunta: " + question + "\n\n";
-  chatText += "Respuesta: " + answer + "\n\n";
+  msgTextarea.value = "Pregunta: " + question + "\n\n";
+  msgTextarea.value += "" + answer + "\n\n";
 
-  // Actualizar el contenido del textarea
-  msgTextarea.value = chatText;
-  msgTextarea.scrollTop = msgTextarea.scrollHeight;
+  // Ajustar la altura del textarea para mostrar todo el contenido
+  msgTextarea.style.height = "auto";
+  msgTextarea.style.height = (msgTextarea.scrollHeight) + "px";
 }
 
 window.onscroll = function () {
