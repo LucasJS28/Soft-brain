@@ -47,6 +47,7 @@
     background: #eee;
     resize: none;
     min-height: 200px;
+    max-height: 200px;
     color: #333;
     box-sizing: border-box;
 }
