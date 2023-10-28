@@ -138,3 +138,7 @@
     bottom: -6px;
     right: 12px;
 }
+
+.icon-no-click {
+    pointer-events: none;
+  }
