@@ -1,5 +1,36 @@
+var chatButton = document.getElementById("chatButton");
+var bubble = document.getElementById("chatBubble");
+
 function openForm() {
   document.getElementById("myForm").style.display = "block";
+  bubble.style.display = "none"; // Oculta la burbuja cuando se abre el chat
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+
+// Mostrar la burbuja de texto al cargar la página
+document.addEventListener("DOMContentLoaded", function () {
+  var bubble = document.getElementById("chatBubble");
+
+  // Mostrar la burbuja de texto al cargar la página
+  bubble.style.display = "block";
+
+  // Programar una tarea para ocultar la burbuja después de 5 segundos
+  setTimeout(function () {
+    bubble.style.opacity = "0"; // Cambiar la opacidad a 0 para que se desvanezca
+  }, 2000);
+
+  // Ocultar la burbuja después de 5 segundos y luego restablecer su opacidad
+  setTimeout(function () {
+    bubble.style.display = "none";
+    bubble.style.opacity = "1"; // Restablecer la opacidad a 1
+  }, 5000); // Después de 10 segundos (5 segundos de animación + 5 segundos de espera)
+});
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+  bubble.style.display = "none"; // Oculta la burbuja cuando se abre el chat
 }
 
 function closeForm() {
@@ -50,7 +81,7 @@ function displayAnswer(questionNumber) {
   var answer = answers[questionNumber - 1]; // Resta 1 al índice
   var chatText = msgTextarea.value;
 
-  chatText += "------------------------------\n";
+  // Agregar la pregunta y respuesta al textarea
   chatText += "Pregunta: " + question + "\n\n";
   chatText += "Respuesta: " + answer + "\n\n";
 
@@ -61,7 +92,7 @@ function displayAnswer(questionNumber) {
 
 window.onscroll = function () {
   var chatButton = document.getElementById("chatButton");
-  if (window.scrollY >= 200) {
+  if (window.scrollY >= 700) {
     chatButton.style.display = "none"; // Ocultar el botón
   } else {
     chatButton.style.display = "block"; // Mostrar el botón
