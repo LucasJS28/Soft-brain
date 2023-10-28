@@ -46,10 +46,11 @@
     border-radius: 20px;
     background: #eee;
     resize: none;
-    min-height: 200px;
-    max-height: 200px;
+    min-height: 220px;
+    max-height: 220px;
     color: #333;
     box-sizing: border-box;
+    font-size: 14px;
 }
 
 /* When the textarea gets focus, do something */
