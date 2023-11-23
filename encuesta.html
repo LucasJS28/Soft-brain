@@ -1,64 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
-<!-- Pagina Realiza por Lucas Jimenez Sepulveda https://github.com/LucasJS28 -->
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre Nosotros</title>
+    <title>Encuesta Satisfaccion al Cliente</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap">
     <script src="scriptchat.js" defer></script>
     <link rel="stylesheet" href="stylechat.css">
-    <style>
-        .mapa {
-            text-align: center;
-        }
-
-        .mapa iframe {
-            border-radius: 20px;
-            width: 90%;
-        }
-
-        .servicio-tecnico,
-        .duenos {
-            margin-top: 30px;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #f7f7f7;
-        }
-
-
-        .servicio-tecnico p,
-        .duenos ul {
-            font-size: 16px;
-            color: #666;
-        }
-
-        .servicio-tecnico p {
-            margin-top: 10px;
-        }
-
-        .duenos ul {
-            list-style-type: disc;
-            padding-left: 20px;
-        }
-
-        #logoempresa {
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        #logoempresa img {
-            width: 350px;
-            display: block;
-            margin: 0 auto;
-            text-align: center;
-        }
-    </style>
 </head>
+</head>
+<style>
+    .container {
+            max-width: 800px;
+            padding: 20px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        label {
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: calc(100% - 18px);
+            padding: 8px;
+            margin-bottom: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-family: 'Inter', sans-serif;
+        }
+
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+
+        
+
+</style>
 <body>
     <nav>
         <input type="checkbox" id="menu-toggle">
@@ -82,59 +85,57 @@
         </div>
     </nav>
     <div class="container">
-        <div class="titulo">
-            <h1>Sobre Nosotros</h1>
-        </div>
-        <p>En Soft-brain, nuestro equipo de servicio técnico altamente calificado está dedicado a garantizar que sus
-            sistemas y aplicaciones funcionen sin problemas. Estamos disponibles las 24 horas del día, los 7 días de la
-            semana, para brindar soporte técnico confiable y eficiente. Ya sea que necesite resolver problemas técnicos,
-            asesoramiento o mantenimiento preventivo, estamos aquí para ayudar.</p>
-        <div id="logoempresa"> <img src="imagenes/logov2.png" alt=""></div>
-        <!-- Información sobre el servicio técnico -->
-        <div class="servicio-tecnico">
-            <div class="titulo">
-                <h2>Servicio Tecnico</h2>
-            </div>
-            <p>En Soft-brain, ofrecemos servicios técnicos confiables y eficientes para garantizar el funcionamiento
-                ininterrumpido de los sistemas y aplicaciones de nuestros clientes. Nuestro equipo de técnicos altamente
-                capacitados está disponible para resolver problemas técnicos, brindar asesoramiento y realizar
-                mantenimiento preventivo. La satisfacción del cliente es nuestra principal prioridad en cada interacción
-                con el servicio técnico.</p>
-        </div>
+    <h1>Encuesta de Satisfacción al Cliente</h1>
 
-        <!-- Información sobre los dueños de la empresa -->
-        <div class="duenos">
-            <div class="titulo">
-                <h2>Equipo Fundador</h2>
-            </div>
-            <ul>
-                <li><strong style="color: black; font-weight: 700; font-style: italic;">Lucas Jimenez:</strong>
-                    Co-fundador y Director Ejecutivo. Lucas es un experto en tecnología con una amplia experiencia en el
-                    desarrollo de soluciones digitales innovadoras. Su visión y liderazgo son fundamentales para el
-                    éxito de Soft-brain, Programador Principal pagina de SoftBrain</li>
-                <li><strong style="color: black; font-weight: 700; font-style: italic;">Jorge Bustamante:</strong>
-                    Co-fundador y Director de Operaciones. Jorge supervisa la gestión diaria de la empresa y garantiza
-                    la entrega puntual de servicios de alta calidad. Es un apasionado de la eficiencia operativa.</li>
-                <li><strong style="color: black; font-weight: 700; font-style: italic;">Matías Olivares:</strong>
-                    Co-fundador y Director de Marketing. Matías es el cerebro creativo detrás de nuestras estrategias de
-                    marketing digital. Su enfoque en la generación de leads y la mejora de la conversión ha impulsado el
-                    crecimiento de nuestros clientes.</li>
-            </ul>
-        </div>
+    <form method="post">
+        <p>Nombre: <input type="text" name="nombre"></p>
 
-        <div class="mapa">
-            <div class="titulo">
-                <h2>Nuestra Ubicacion (Soporte Tecnico)</h2>
-            </div>
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3251.0500174571857!2d-71.67561149033104!3d-35.42879096632245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9665c41ed574bf39%3A0xc72ac71c1b588758!2sAv.%20Carlos%20Schorr%20255%2C%203460000%20Talca%2C%20Maule!5e0!3m2!1ses!2scl!4v1697508722102!5m2!1ses!2scl"
-                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-        <br>
-        <p style="font-weight: 700; text-align: center;">Todos los derechos de autor están reservados por <span
-                style="color: red;">@SoftbrainSpa.</span></p>
-    </div>
+        <p>Correo electrónico: <input type="email" name="email"></p>
+
+        <p>Servicios Utilizados:</p>
+        <input type="checkbox" id="desarrollo_web" name="servicio[]" value="Desarrollo Web">
+        <label for="desarrollo_web">Desarrollo Web</label><br>
+
+        <input type="checkbox" id="marketing" name="servicio[]" value="Marketing en Línea">
+        <label for="marketing">Marketing en Línea</label><br>
+
+        <input type="checkbox" id="soporte_tecnico" name="servicio[]" value="Soporte Técnico">
+        <label for="soporte_tecnico">Soporte Técnico</label><br>
+
+        <p>Califique nuestra atención (1-5):</p>
+        <input type="radio" id="calificacion1" name="calificacion" value="1">
+        <label for="calificacion1">1</label><br>
+
+        <input type="radio" id="calificacion2" name="calificacion" value="2">
+        <label for="calificacion2">2</label><br>
+
+        <input type="radio" id="calificacion3" name="calificacion" value="3">
+        <label for="calificacion3">3</label><br>
+
+        <input type="radio" id="calificacion4" name="calificacion" value="4">
+        <label for="calificacion4">4</label><br>
+
+        <input type="radio" id="calificacion5" name="calificacion" value="5">
+        <label for="calificacion5">5</label><br>
+
+        <p>¿Recomendaría nuestros servicios?</p>
+        <input type="radio" id="recomendacion_si" name="recomendacion" value="Sí">
+        <label for="recomendacion_si">Sí</label><br>
+
+        <input type="radio" id="recomendacion_no" name="recomendacion" value="No">
+        <label for="recomendacion_no">No</label><br>
+
+        <p>¿Cuál fue la parte más útil de nuestros servicios?</p>
+        <textarea name="parte_util" rows="4" cols="50"></textarea><br><br>
+
+        <p>¿Qué áreas podríamos mejorar?</p>
+        <textarea name="areas_mejora" rows="4" cols="50"></textarea><br><br>
+
+        <p>Comentarios adicionales:</p>
+        <textarea name="comentarios" rows="4" cols="50"></textarea><br><br>
+
+        <input type="submit" value="Enviar">
+    </form>
     <button class="open-button" id="chatButton" onclick="openForm()"><i class="fa-solid fa-comments icon-no-click"></i>
         <div class="bubble" id="chatBubble"><i class="fa-solid fa-headset"></i> Necesitas Ayuda?</div>
     </button>
@@ -172,7 +173,7 @@
             <button type="button" class="btn cancel" onclick="closeForm()">Cerrar</button>
         </form>
     </div>
-
+</div>
 </body>
 
 </html>
